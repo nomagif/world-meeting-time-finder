@@ -3,125 +3,65 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>World Meeting Time Finder</title>
-  <meta name="description" content="Find the best meeting time across Tokyo, New York, London, Berlin, Singapore, and Sydney in one fast page." />
-  <link rel="canonical" href="https://worldmeetingtimefinder.com/" />
-  <meta property="og:title" content="World Meeting Time Finder" />
-  <meta property="og:description" content="Check the same meeting time across major work hubs in one page." />
+  <title>Useful One-Page Tools</title>
+  <meta name="description" content="A lightweight hub for practical one-page tools covering time zones, status checks, and simple comparisons." />
+  <link rel="canonical" href="https://one-page-tools-ibi.pages.dev/" />
+  <meta property="og:title" content="Useful One-Page Tools" />
+  <meta property="og:description" content="A lightweight hub for practical one-page tools." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://worldmeetingtimefinder.com/" />
-  <meta property="og:image" content="https://worldmeetingtimefinder.com/og-image.svg" />
-  <meta property="og:image:alt" content="World Meeting Time Finder social preview" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="World Meeting Time Finder" />
-  <meta name="twitter:description" content="Check the same meeting time across major work hubs in one page." />
-  <meta name="twitter:image" content="https://worldmeetingtimefinder.com/og-image.svg" />
+  <meta property="og:url" content="https://one-page-tools-ibi.pages.dev/" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="./assets/styles.css" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151"
-     crossorigin="anonymous"></script>
 </head>
 <body>
   <div class="wrap">
     <div class="hero">
-      <span class="badge">1 page = 1 job</span>
-      <h1>World Meeting Time Finder</h1>
-      <p class="muted">Pick a reference city and date. Instantly see matching local times across major work hubs for remote meetings.</p>
-    </div>
-
-    <div class="card">
-      <div class="row two">
-        <div>
-          <label for="baseCity">Reference city</label>
-          <select id="baseCity"></select>
-        </div>
-        <div>
-          <label for="meetingDate">Date</label>
-          <input id="meetingDate" type="date" />
-        </div>
-      </div>
-      <div class="row two">
-        <div>
-          <label for="meetingTime">Time</label>
-          <input id="meetingTime" type="time" value="09:00" />
-        </div>
-        <div>
-          <label>&nbsp;</label>
-          <button id="showTimes">Show times</button>
-        </div>
-      </div>
-      <div id="results" class="result"></div>
+      <span class="badge">Hub for one-page tools</span>
+      <h1>Useful one-page tools</h1>
+      <p class="muted">This site collects small single-purpose tools built to solve one practical task quickly, without login, setup, or unnecessary screens.</p>
     </div>
 
     <div class="card small">
-      <p>This page is made for one thing only: checking the same meeting time across major cities without calendar setup, login, or extra screens.</p>
+      <p>Each tool is intentionally lightweight and focused on one job only. Some tools are hosted on their own domain, while others are still on preview domains during rollout.</p>
     </div>
 
+    <ul class="tool-list">
+      <li>
+        <h2><a href="./tools/best-world-meeting-time-finder.html">World Meeting Time Finder</a></h2>
+        <p class="muted">See overlapping meeting hours across major cities in seconds.</p>
+      </li>
+      <li>
+        <h2><a href="./tools/us-europe-asia-time-overlap-tool.html">US, Europe & Asia Time Overlap Tool</a></h2>
+        <p class="muted">Find the practical overlap between US, Europe, and Asia work hours.</p>
+      </li>
+      <li>
+        <h2><a href="./tools/ai-tools-pricing-comparison-table.html">AI Tools Pricing Comparison</a></h2>
+        <p class="muted">Quick pricing snapshot for major AI tools.</p>
+      </li>
+      <li>
+        <h2><a href="./tools/website-response-time-checker-tool.html">Website Response Time Checker</a></h2>
+        <p class="muted">Run a rough browser-side response time check on a public URL.</p>
+      </li>
+      <li>
+        <h2><a href="./tools/usd-jpy-inflation-adjusted-calculator-tool.html">USD ⇄ JPY Inflation Adjusted Calculator</a></h2>
+        <p class="muted">Do a quick exchange-rate conversion with a simple inflation adjustment.</p>
+      </li>
+      <li>
+        <h2><a href="https://tokyo-new-york-time-difference.pages.dev/">Tokyo ↔ New York Time Difference</a></h2>
+        <p class="muted">See current JST and ET side by side with the hour difference.</p>
+      </li>
+      <li>
+        <h2><a href="https://utc-to-local-time-converter.pages.dev/">UTC to Local Time Converter</a></h2>
+        <p class="muted">Convert UTC to useful local times in one page.</p>
+      </li>
+    </ul>
+
     <div class="card small">
-      <h2>Recommended tools</h2>
-      <p class="muted">Ad slot / affiliate slot. Keep this block short and clearly labeled.</p>
+      <p><a href="./about.html">About</a> · <a href="./privacy.html">Privacy Policy</a></p>
+      <p class="muted">This hub links first to working internal tool pages so the site can rank and be reviewed as a real destination, not only as a link directory.</p>
     </div>
+    <p class="footer">Built as a lightweight hub for discovery, trust, and review while each tool stays focused on a single job.</p>
   </div>
-
-  <script>
-    const cities = [
-      ['Tokyo', 'Asia/Tokyo'], ['New York', 'America/New_York'], ['London', 'Europe/London'],
-      ['Berlin', 'Europe/Berlin'], ['Singapore', 'Asia/Singapore'], ['Sydney', 'Australia/Sydney']
-    ];
-    const baseCity = document.getElementById('baseCity');
-    const meetingDate = document.getElementById('meetingDate');
-    const meetingTime = document.getElementById('meetingTime');
-    const results = document.getElementById('results');
-
-    cities.forEach(([label, value]) => {
-      const opt = document.createElement('option');
-      opt.value = value;
-      opt.textContent = label;
-      baseCity.appendChild(opt);
-    });
-
-    baseCity.value = 'Asia/Tokyo';
-    meetingDate.value = new Date().toISOString().slice(0, 10);
-
-    function getTimeZoneOffset(date, timeZone) {
-      const dtf = new Intl.DateTimeFormat('en-US', {
-        timeZone, year: 'numeric', month: '2-digit', day: '2-digit',
-        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-      });
-      const parts = Object.fromEntries(
-        dtf.formatToParts(date).filter(p => p.type !== 'literal').map(p => [p.type, p.value])
-      );
-      const asUTC = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
-      return (asUTC - date.getTime()) / 60000;
-    }
-
-    function zonedDateTimeToUtc(dateStr, timeStr, timeZone) {
-      const [y, m, d] = dateStr.split('-').map(Number);
-      const [hh, mm] = timeStr.split(':').map(Number);
-      const guess = new Date(Date.UTC(y, m - 1, d, hh, mm));
-      const offset = getTimeZoneOffset(guess, timeZone);
-      return new Date(Date.UTC(y, m - 1, d, hh, mm) - offset * 60000);
-    }
-
-    function formatInZone(date, timeZone) {
-      return new Intl.DateTimeFormat('en-US', {
-        timeZone,
-        weekday: 'short',
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit',
-        hour12: false
-      }).format(date);
-    }
-
-    document.getElementById('showTimes').addEventListener('click', () => {
-      const utcDate = zonedDateTimeToUtc(meetingDate.value, meetingTime.value, baseCity.value);
-      results.innerHTML = '<table><thead><tr><th>City</th><th>Local time</th></tr></thead><tbody>' +
-        cities.map(([label, zone]) => `<tr><td>${label}</td><td>${formatInZone(utcDate, zone)}</td></tr>`).join('') +
-        '</tbody></table>';
-    });
-
-    document.getElementById('showTimes').click();
-  </script>
 </body>
 </html>
