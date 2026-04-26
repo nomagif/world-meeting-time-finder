@@ -1,0 +1,37 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#020617"/>
+      <stop offset="1" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="190" y1="178" x2="1010" y2="468" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g opacity="0.16" stroke="#38BDF8">
+    <path d="M80 170H1120"/>
+    <path d="M80 315H1120"/>
+    <path d="M80 460H1120"/>
+    <path d="M210 100V530"/>
+    <path d="M425 100V530"/>
+    <path d="M640 100V530"/>
+    <path d="M855 100V530"/>
+    <path d="M1070 100V530"/>
+  </g>
+  <rect x="110" y="120" width="980" height="390" rx="28" fill="#0B1220" stroke="#334155"/>
+  <rect x="150" y="162" width="220" height="34" rx="17" fill="#111827" stroke="#334155"/>
+  <text x="176" y="184" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="20">1 page = 1 job</text>
+  <text x="150" y="278" fill="white" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="700">World Meeting Time</text>
+  <text x="150" y="352" fill="url(#accent)" font-family="Inter, Arial, sans-serif" font-size="66" font-weight="700">Finder</text>
+  <text x="150" y="415" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="30">Tokyo · New York · London · Berlin · Singapore · Sydney</text>
+  <text x="150" y="462" fill="#94A3B8" font-family="Inter, Arial, sans-serif" font-size="24">Check matching local times across major work hubs in one page.</text>
+  <g>
+    <circle cx="924" cy="230" r="12" fill="#38BDF8"/>
+    <circle cx="994" cy="286" r="12" fill="#22D3EE"/>
+    <circle cx="952" cy="372" r="12" fill="#38BDF8"/>
+    <circle cx="860" cy="330" r="12" fill="#22D3EE"/>
+    <path d="M924 230L994 286L952 372L860 330L924 230Z" stroke="#38BDF8" stroke-width="3" opacity="0.7"/>
+  </g>
+</svg>
