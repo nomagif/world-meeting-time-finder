@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>USD to JPY Inflation Adjusted Calculator Tool</title>
+  <meta name="description" content="Convert USD and JPY with a simple inflation-adjusted estimate for quick comparison." />
+  <link rel="canonical" href="https://one-page-tools-ibi.pages.dev/tools/usd-jpy-inflation-adjusted-calculator-tool.html" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <h1>USD to JPY Inflation Adjusted Calculator</h1>
+      <p class="muted">A rough calculator for quick comparison. Uses a simple annual inflation estimate, not official CPI-grade precision.</p>
+    </div>
+    <div class="card">
+      <div class="row two">
+        <div>
+          <label for="amount">Amount</label>
+          <input id="amount" type="number" value="1000" min="0" step="0.01" />
+        </div>
+        <div>
+          <label for="direction">Direction</label>
+          <select id="direction">
+            <option value="usd-jpy">USD → JPY</option>
+            <option value="jpy-usd">JPY → USD</option>
+          </select>
+        </div>
+      </div>
+      <div class="row two">
+        <div>
+          <label for="rate">Exchange rate</label>
+          <input id="rate" type="number" value="155" step="0.01" />
+        </div>
+        <div>
+          <label for="years">Inflation adjustment years</label>
+          <input id="years" type="number" value="3" min="0" max="30" />
+        </div>
+      </div>
+      <div class="row two">
+        <div>
+          <label for="inflation">Annual inflation estimate (%)</label>
+          <input id="inflation" type="number" value="3" step="0.1" min="0" max="20" />
+        </div>
+        <div>
+          <label>&nbsp;</label>
+          <button id="calc">Calculate</button>
+        </div>
+      </div>
+      <div id="result" class="result"></div>
+    </div>
+    <div class="card small"><p>Good for quick directional thinking and rough historic comparison. Not for accounting, tax, or regulated financial decisions.</p></div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>Is this using official CPI data?</h3>
+      <p class="muted">No. This page uses a simple annual inflation assumption for quick estimates, not official CPI-grade historical series.</p>
+      <h3>What is it good for?</h3>
+      <p class="muted">It is useful for rough comparisons like “what would this amount feel like after inflation?” when thinking across USD and JPY.</p>
+      <h3>What is it not good for?</h3>
+      <p class="muted">Do not use it for tax filing, accounting, compliance, regulated disclosures, or any situation that needs official historical precision.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a href="./best-world-meeting-time-finder.html">World Meeting Time Finder</a> · <a href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+    document.getElementById('calc').addEventListener('click', () => {
+      const amount = Number(document.getElementById('amount').value);
+      const direction = document.getElementById('direction').value;
+      const rate = Number(document.getElementById('rate').value);
+      const years = Number(document.getElementById('years').value);
+      const inflation = Number(document.getElementById('inflation').value) / 100;
+      const converted = direction === 'usd-jpy' ? amount * rate : amount / rate;
+      const adjusted = converted * Math.pow(1 + inflation, years);
+      const unit = direction === 'usd-jpy' ? 'JPY' : 'USD';
+      document.getElementById('result').innerHTML = `<strong>Converted:</strong> ${converted.toFixed(2)} ${unit}<br><strong>Inflation-adjusted estimate:</strong> ${adjusted.toFixed(2)} ${unit}<br><span class="muted">Assumes ${(inflation*100).toFixed(1)}% annual inflation for ${years} years.</span>`;
+    });
+    document.getElementById('calc').click();
+  </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>US Europe Asia Time Overlap Tool</title>
+  <meta name="description" content="Find overlap between US, Europe, and Asia work hours for remote teams and quick scheduling." />
+  <link rel="canonical" href="https://one-page-tools-ibi.pages.dev/tools/us-europe-asia-time-overlap-tool.html" />
+  <link rel="stylesheet" href="../assets/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <h1>US Europe Asia Time Overlap Tool</h1>
+      <p class="muted">Shows the realistic overlap window between New York, London, and Tokyo on one date.</p>
+    </div>
+    <div class="card">
+      <div class="row two">
+        <div>
+          <label for="date">Date</label>
+          <input id="date" type="date" />
+        </div>
+        <div>
+          <label for="hours">Work hours per region</label>
+          <select id="hours">
+            <option value="9,17">09:00–17:00</option>
+            <option value="8,16">08:00–16:00</option>
+            <option value="10,18">10:00–18:00</option>
+          </select>
+        </div>
+      </div>
+      <button id="calc">Find overlap</button>
+      <div id="result" class="result"></div>
+    </div>
+    <div class="card small"><p>Use this to check whether a same-day cross-region call is realistic before opening a full calendar app.</p></div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>What does this overlap tool show?</h3>
+      <p class="muted">It shows whether standard work-hour windows in New York, London, and Tokyo overlap on the selected date.</p>
+      <h3>Why would there be no overlap?</h3>
+      <p class="muted">Because the distance between US and Asia working hours is often too large, especially when you keep strict 9-to-5 schedules.</p>
+      <h3>When should I use this instead of the meeting finder?</h3>
+      <p class="muted">Use this page when you want a fast yes-or-no answer about cross-region feasibility. Use the meeting finder when you already have a candidate time.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a href="./best-world-meeting-time-finder.html">World Meeting Time Finder</a> · <a href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+    const zones = { 'New York': 'America/New_York', 'London': 'Europe/London', 'Tokyo': 'Asia/Tokyo' };
+    const dateInput = document.getElementById('date');
+    const result = document.getElementById('result');
+    dateInput.value = new Date().toISOString().slice(0,10);
+
+    function getTimeZoneOffset(date, timeZone) {
+      const dtf = new Intl.DateTimeFormat('en-US', { timeZone, year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', second:'2-digit', hour12:false });
+      const parts = Object.fromEntries(dtf.formatToParts(date).filter(p => p.type !== 'literal').map(p => [p.type, p.value]));
+      const asUTC = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
+      return (asUTC - date.getTime()) / 60000;
+    }
+    function zonedDateTimeToUtc(dateStr, hour, timeZone) {
+      const [y,m,d] = dateStr.split('-').map(Number);
+      const guess = new Date(Date.UTC(y, m - 1, d, hour, 0));
+      const offset = getTimeZoneOffset(guess, timeZone);
+      return new Date(Date.UTC(y, m - 1, d, hour, 0) - offset * 60000);
+    }
+    function fmt(date, zone) {
+      return new Intl.DateTimeFormat('en-US', { timeZone: zone, weekday:'short', hour:'2-digit', minute:'2-digit', hour12:false }).format(date);
+    }
+    document.getElementById('calc').addEventListener('click', () => {
+      const [startH, endH] = document.getElementById('hours').value.split(',').map(Number);
+      const date = dateInput.value;
+      const overlaps = [];
+      for (let utcHour = 0; utcHour < 24; utcHour++) {
+        const utc = new Date(Date.UTC(...date.split('-').map((v, i) => i === 1 ? Number(v)-1 : Number(v)), utcHour, 0));
+        const ok = Object.values(zones).every(zone => {
+          const hour = Number(new Intl.DateTimeFormat('en-US', { timeZone: zone, hour:'2-digit', hour12:false }).format(utc));
+          return hour >= startH && hour < endH;
+        });
+        if (ok) overlaps.push(utc);
+      }
+      if (!overlaps.length) {
+        result.innerHTML = '<strong>No same-day overlap</strong><p class="muted">Try earlier US hours, later Asia hours, or split into two calls.</p>';
+        return;
+      }
+      const first = overlaps[0], last = overlaps[overlaps.length - 1];
+      result.innerHTML = `
+        <strong>Overlap found</strong>
+        <p>UTC window: ${first.toISOString().slice(11,16)}–${String(last.getUTCHours()+1).padStart(2,'0')}:00</p>
+        <ul>
+          <li>New York: ${fmt(first, zones['New York'])} → ${fmt(new Date(last.getTime()+3600000), zones['New York'])}</li>
+          <li>London: ${fmt(first, zones['London'])} → ${fmt(new Date(last.getTime()+3600000), zones['London'])}</li>
+          <li>Tokyo: ${fmt(first, zones['Tokyo'])} → ${fmt(new Date(last.getTime()+3600000), zones['Tokyo'])}</li>
+        </ul>`;
+    });
+    document.getElementById('calc').click();
+  </script>
+</body>
+</html>
