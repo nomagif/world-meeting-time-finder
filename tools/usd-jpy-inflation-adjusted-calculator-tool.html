@@ -43,7 +43,7 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="nav"><a href="../index.html">← All tools</a></div>
+    <div class="nav"><a data-track="usd-jpy-inflation-adjusted-calculator-nav-all-tools" href="../index.html">← All tools</a></div>
     <div class="hero">
       <h1>USD to JPY Inflation Adjusted Calculator</h1>
       <p class="muted">A rough calculator for quick comparison. Uses a simple annual inflation estimate, not official CPI-grade precision.</p>
@@ -79,7 +79,7 @@
         </div>
         <div>
           <label>&nbsp;</label>
-          <button id="calc">Calculate</button>
+          <button id="calc" data-track="usd-jpy-inflation-adjusted-calculator-calc">Calculate</button>
         </div>
       </div>
       <div id="result" class="result"></div>
@@ -108,7 +108,7 @@
       <h3>Why does the result depend so much on the assumptions?</h3>
       <p class="muted">Because both exchange rates and inflation paths can move a lot over time. This page keeps the assumptions visible so you can sanity-check the direction instead of treating the output as exact.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a href="./best-world-meeting-time-finder.html">World Meeting Time Finder</a> · <a href="./ai-tools-pricing-comparison-table.html">AI Tools Pricing Comparison</a> · <a href="../index.html">All tools</a></p></div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="usd-jpy-inflation-adjusted-calculator-related-best-world-meeting-time-finder" href="./best-world-meeting-time-finder.html">World Meeting Time Finder</a> · <a data-track="usd-jpy-inflation-adjusted-calculator-related-ai-tools-pricing-comparison-table" href="./ai-tools-pricing-comparison-table.html">AI Tools Pricing Comparison</a> · <a data-track="usd-jpy-inflation-adjusted-calculator-related-all-tools" href="../index.html">All tools</a></p></div>
   </div>
   <script>
     document.getElementById('calc').addEventListener('click', () => {
@@ -124,5 +124,6 @@
     });
     document.getElementById('calc').click();
   </script>
+  <script src="../assets/analytics.js" defer></script>
 </body>
 </html>

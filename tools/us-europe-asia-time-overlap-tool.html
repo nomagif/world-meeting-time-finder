@@ -43,7 +43,7 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="nav"><a href="../index.html">← All tools</a></div>
+    <div class="nav"><a data-track="us-europe-asia-time-overlap-nav-all-tools" href="../index.html">← All tools</a></div>
     <div class="hero">
       <h1>US Europe Asia Time Overlap Tool</h1>
       <p class="muted">Shows the realistic overlap window between New York, London, and Tokyo on one date.</p>
@@ -63,7 +63,7 @@
           </select>
         </div>
       </div>
-      <button id="calc">Find overlap</button>
+      <button id="calc" data-track="us-europe-asia-time-overlap-calc">Find overlap</button>
       <div id="result" class="result"></div>
     </div>
     <div class="card small"><p>Use this to check whether a same-day cross-region call is realistic before opening a full calendar app.</p></div>
@@ -86,7 +86,7 @@
       <h3>What should I do if there is no overlap?</h3>
       <p class="muted">Try flexible hours, rotate inconvenience across regions, or split the meeting into two smaller handoff calls. No-overlap days are common, especially around daylight saving transitions.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a href="./best-world-meeting-time-finder.html">World Meeting Time Finder</a> · <a href="https://utc-to-local-time-converter.pages.dev/">UTC to Local Time Converter</a> · <a href="../index.html">All tools</a></p></div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="us-europe-asia-time-overlap-related-best-world-meeting-time-finder" href="./best-world-meeting-time-finder.html">World Meeting Time Finder</a> · <a data-track="us-europe-asia-time-overlap-external-utc-converter" href="https://utc-to-local-time-converter.pages.dev/">UTC to Local Time Converter</a> · <a data-track="us-europe-asia-time-overlap-related-all-tools" href="../index.html">All tools</a></p></div>
   </div>
   <script>
     const zones = { 'New York': 'America/New_York', 'London': 'Europe/London', 'Tokyo': 'Asia/Tokyo' };
@@ -137,5 +137,6 @@
     });
     document.getElementById('calc').click();
   </script>
+  <script src="../assets/analytics.js" defer></script>
 </body>
 </html>

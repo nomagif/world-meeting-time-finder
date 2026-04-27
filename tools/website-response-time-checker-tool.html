@@ -43,7 +43,7 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="nav"><a href="../index.html">← All tools</a></div>
+    <div class="nav"><a data-track="website-response-time-checker-nav-all-tools" href="../index.html">← All tools</a></div>
     <div class="hero">
       <h1>Website Response Time Checker Tool</h1>
       <p class="muted">A quick browser-side response time check. Best for rough comparisons, not strict uptime monitoring.</p>
@@ -59,7 +59,7 @@
           <select id="tries"><option>1</option><option selected>3</option><option>5</option></select>
         </div>
       </div>
-      <button id="check">Check response time</button>
+      <button id="check" data-track="website-response-time-checker-check">Check response time</button>
       <div id="result" class="result"></div>
     </div>
     <div class="card small"><p>Because browsers have cross-origin limits, some websites may fail or return only rough timing. This is still useful for fast sanity checks.</p></div>
@@ -86,7 +86,7 @@
       <h3>Should I use this for production incident response?</h3>
       <p class="muted">No. For incident response or SLA work, use proper monitoring, server-side checks, and historical logs. This tool is intentionally lightweight and browser-limited.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a href="./ai-tools-pricing-comparison-table.html">AI Tools Pricing Comparison</a> · <a href="./usd-jpy-inflation-adjusted-calculator-tool.html">USD ⇄ JPY Inflation Adjusted Calculator</a> · <a href="../index.html">All tools</a></p></div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="website-response-time-checker-related-ai-tools-pricing-comparison-table" href="./ai-tools-pricing-comparison-table.html">AI Tools Pricing Comparison</a> · <a data-track="website-response-time-checker-related-usd-jpy-inflation-adjusted-calculator-tool" href="./usd-jpy-inflation-adjusted-calculator-tool.html">USD ⇄ JPY Inflation Adjusted Calculator</a> · <a data-track="website-response-time-checker-related-all-tools" href="../index.html">All tools</a></p></div>
   </div>
   <script>
     async function measure(url) {
@@ -109,5 +109,6 @@
       }
     });
   </script>
+  <script src="../assets/analytics.js" defer></script>
 </body>
 </html>

@@ -43,7 +43,7 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="nav"><a href="../index.html">← All tools</a></div>
+    <div class="nav"><a data-track="best-world-meeting-time-finder-nav-all-tools" href="../index.html">← All tools</a></div>
     <div class="hero">
       <h1>Best World Meeting Time Finder</h1>
       <p class="muted">Pick a reference city and date. Instantly see matching times across major work hubs for remote meetings.</p>
@@ -66,7 +66,7 @@
         </div>
         <div>
           <label>&nbsp;</label>
-          <button id="showTimes">Show times</button>
+          <button id="showTimes" data-track="best-world-meeting-time-finder-showTimes">Show times</button>
         </div>
       </div>
       <div id="results" class="result"></div>
@@ -93,7 +93,7 @@
       <h3>Should I still confirm the final meeting time?</h3>
       <p class="muted">Yes. This page is meant to narrow down candidate hours quickly. You should still confirm the final invite in your calendar system before sending it.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a href="./us-europe-asia-time-overlap-tool.html">US, Europe & Asia Time Overlap Tool</a> · <a href="https://utc-to-local-time-converter.pages.dev/">UTC to Local Time Converter</a> · <a href="../index.html">All tools</a></p></div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="best-world-meeting-time-finder-related-us-europe-asia-time-overlap-tool" href="./us-europe-asia-time-overlap-tool.html">US, Europe & Asia Time Overlap Tool</a> · <a data-track="best-world-meeting-time-finder-external-utc-converter" href="https://utc-to-local-time-converter.pages.dev/">UTC to Local Time Converter</a> · <a data-track="best-world-meeting-time-finder-related-all-tools" href="../index.html">All tools</a></p></div>
   </div>
   <script>
     const cities = [
@@ -138,5 +138,6 @@
     });
     document.getElementById('showTimes').click();
   </script>
+  <script src="../assets/analytics.js" defer></script>
 </body>
 </html>
