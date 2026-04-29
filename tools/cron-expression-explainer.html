@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cron Expression Explainer | Read a 5-Field Cron Schedule</title>
+  <meta name="description" content="Explain simple 5-field cron expressions and preview upcoming matching times directly in your browser." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/cron-expression-explainer.html" />
+  <meta property="og:title" content="Cron Expression Explainer | Read a 5-Field Cron Schedule" />
+  <meta property="og:description" content="Explain simple 5-field cron expressions and preview upcoming matching times directly in your browser." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/cron-expression-explainer.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "Cron Expression Explainer",
+            "url": "https://usefulonepagetools.com/tools/cron-expression-explainer.html",
+            "applicationCategory": "Web tools",
+            "operatingSystem": "Any",
+            "description": "Explain simple 5-field cron expressions and preview upcoming matching times directly in your browser.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Which cron format is supported?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "This tool supports common 5-field minute hour day-of-month month day-of-week cron expressions."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does it support every cron extension?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. It handles simple wildcards, numbers, ranges, steps, and comma lists."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Should I test production schedules elsewhere?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. Use this as a quick explainer, then test critical schedules in the system that will run them."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Cron Expression Explainer",
+                    "item": "https://usefulonepagetools.com/tools/cron-expression-explainer.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="cron-expression-explainer-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Web tools</span>
+      <h1>Cron Expression Explainer</h1>
+      <p class="muted">Enter a 5-field cron expression to get a plain-English explanation and a simple upcoming-time preview.</p>
+    </div>
+    <div class="card">
+      <label for="cron">Cron expression</label><input id="cron" value="0 9 * * 1-5" /><button id="explainBtn" data-track="cron-expression-explainer-explain">Explain cron</button><div id="result" class="result"></div>
+    </div>
+    <div class="card small"><h2>How to use this tool</h2><p class="muted">Enter a 5-field cron expression to get a plain-English explanation and a simple upcoming-time preview.</p></div>
+    <div class="card small"><h2>When this tool is useful</h2><p class="muted">Use this before editing scheduled jobs, CI workflows, server cron tasks, or automation scripts.</p></div>
+    <div class="card small"><h2>Example use case</h2><p class="muted">Enter 0 9 * * 1-5 to confirm it means 09:00 on weekdays before adding it to an automation.</p></div>
+    <div class="card small"><h2>FAQ</h2><h3>Which cron format is supported?</h3><p class="muted">This tool supports common 5-field minute hour day-of-month month day-of-week cron expressions.</p><h3>Does it support every cron extension?</h3><p class="muted">No. It handles simple wildcards, numbers, ranges, steps, and comma lists.</p><h3>Should I test production schedules elsewhere?</h3><p class="muted">Yes. Use this as a quick explainer, then test critical schedules in the system that will run them.</p></div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="cron-expression-explainer-related-unix-timestamp-converter" href="./unix-timestamp-converter.html">Unix Timestamp Converter</a> · <a data-track="cron-expression-explainer-related-iso-8601-date-converter" href="./iso-8601-date-converter.html">ISO 8601 Date Converter</a> · <a data-track="cron-expression-explainer-related-regex-tester" href="./regex-tester.html">Regex Tester</a> · <a data-track="cron-expression-explainer-related-all-tools" href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+    const input=document.getElementById('cron'), result=document.getElementById('result'); const names=['minute','hour','day of month','month','day of week'];
+    function desc(v,name){if(v==='*')return 'every '+name; if(v.includes('/')){const [base,step]=v.split('/'); return desc(base,name)+' every '+step;} if(v.includes(','))return v.split(',').map(x=>desc(x,name)).join(' or '); if(v.includes('-')){const [a,b]=v.split('-'); return name+' '+a+' through '+b;} return name+' '+v;}
+    function allowed(v,min,max){let set=new Set(); const parts=v.split(','); for(const part of parts){let [range,stepRaw]=part.split('/'); const step=Number(stepRaw||1); let a=min,b=max; if(range&&range!=='*'){if(range.includes('-')){[a,b]=range.split('-').map(Number);}else{a=b=Number(range);}} if(!Number.isFinite(a)||!Number.isFinite(b)||!Number.isFinite(step)||step<1) return null; for(let i=a;i<=b;i+=step) if(i>=min&&i<=max) set.add(i);} return set;}
+    function explain(){const parts=input.value.trim().split(/\s+/); if(parts.length!==5){result.textContent='Enter a 5-field cron expression: minute hour day-of-month month day-of-week.'; return;} const ranges=[[0,59],[0,23],[1,31],[1,12],[0,7]]; const sets=parts.map((p,i)=>allowed(p,...ranges[i])); if(sets.some(s=>!s||!s.size)){result.textContent='Could not parse one of the cron fields.'; return;} const text=parts.map((p,i)=>'<li><strong>'+names[i]+':</strong> '+desc(p,names[i])+'</li>').join(''); let upcoming=[]; let d=new Date(); d.setSeconds(0,0); for(let i=0;i<525600&&upcoming.length<5;i++){d=new Date(d.getTime()+60000); const dow=d.getDay(); if(sets[0].has(d.getMinutes())&&sets[1].has(d.getHours())&&sets[2].has(d.getDate())&&sets[3].has(d.getMonth()+1)&&(sets[4].has(dow)||sets[4].has(7)&&dow===0)) upcoming.push(new Date(d));} result.innerHTML='<ul>'+text+'</ul><h3>Next matches in your local time</h3><ol>'+upcoming.map(x=>'<li>'+x.toLocaleString()+'</li>').join('')+'</ol>';}
+    document.getElementById('explainBtn').addEventListener('click',explain); explain();
+ 
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

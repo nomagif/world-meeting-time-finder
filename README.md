@@ -33,6 +33,11 @@ Build one strong domain with many focused internal tool pages instead of splitti
 - URL Encoder Decoder
 - Regex Tester
 - Text Case Converter
+- Time Zone Meeting Planner by Cities
+- Work Hours Overlap Calculator
+- ISO 8601 Date Converter
+- Cron Expression Explainer
+- Countdown Timer
 
 ## Local preview
 

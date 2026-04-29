@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Countdown Timer | Simple Browser Countdown</title>
+  <meta name="description" content="Create a simple countdown timer for minutes and seconds that runs directly in your browser." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/countdown-timer.html" />
+  <meta property="og:title" content="Countdown Timer | Simple Browser Countdown" />
+  <meta property="og:description" content="Create a simple countdown timer for minutes and seconds that runs directly in your browser." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/countdown-timer.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "Countdown Timer",
+            "url": "https://usefulonepagetools.com/tools/countdown-timer.html",
+            "applicationCategory": "Time tools",
+            "operatingSystem": "Any",
+            "description": "Create a simple countdown timer for minutes and seconds that runs directly in your browser.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Does it run after closing the browser?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Keep the page open while the countdown runs."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does it play sound?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "This lightweight version shows an on-page finished message and avoids intrusive audio."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is it a Pomodoro app?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "It is a simple countdown timer, not a full task-tracking app."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Countdown Timer",
+                    "item": "https://usefulonepagetools.com/tools/countdown-timer.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="countdown-timer-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Time tools</span>
+      <h1>Countdown Timer</h1>
+      <p class="muted">Set minutes and seconds, start the timer, and see the remaining time in one focused page.</p>
+    </div>
+    <div class="card">
+      <div class="row two"><div><label for="minutes">Minutes</label><input id="minutes" type="number" min="0" value="5" /></div><div><label for="seconds">Seconds</label><input id="seconds" type="number" min="0" max="59" value="0" /></div></div><div class="row two"><button id="startBtn" data-track="countdown-timer-start">Start</button><button id="resetBtn" data-track="countdown-timer-reset">Reset</button></div><div id="display" class="result" style="font-size:2rem;text-align:center;">05:00</div>
+    </div>
+    <div class="card small"><h2>How to use this tool</h2><p class="muted">Set minutes and seconds, start the timer, and see the remaining time in one focused page.</p></div>
+    <div class="card small"><h2>When this tool is useful</h2><p class="muted">Use this for short focus blocks, cooking checks, meeting breaks, exercise intervals, and quick reminders while your browser stays open.</p></div>
+    <div class="card small"><h2>Example use case</h2><p class="muted">Set 25 minutes for a focus block or 5 minutes for a meeting break, then start the countdown.</p></div>
+    <div class="card small"><h2>FAQ</h2><h3>Does it run after closing the browser?</h3><p class="muted">No. Keep the page open while the countdown runs.</p><h3>Does it play sound?</h3><p class="muted">This lightweight version shows an on-page finished message and avoids intrusive audio.</p><h3>Is it a Pomodoro app?</h3><p class="muted">It is a simple countdown timer, not a full task-tracking app.</p></div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="countdown-timer-related-add-days-to-date-calculator" href="./add-days-to-date-calculator.html">Add Days to Date Calculator</a> · <a data-track="countdown-timer-related-date-difference-calculator" href="./date-difference-calculator.html">Date Difference Calculator</a> · <a data-track="countdown-timer-related-business-days-calculator" href="./business-days-calculator.html">Business Days Calculator</a> · <a data-track="countdown-timer-related-all-tools" href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+    const minutes=document.getElementById('minutes'), seconds=document.getElementById('seconds'), display=document.getElementById('display'); let remaining=300, timer=null;
+    function read(){remaining=Math.max(0,(Number(minutes.value)||0)*60+(Number(seconds.value)||0)); render();}
+    function render(){const m=Math.floor(remaining/60), s=remaining%60; display.textContent=String(m).padStart(2,'0')+':'+String(s).padStart(2,'0')+(remaining===0?' Finished':'');}
+    function start(){if(timer) clearInterval(timer); if(remaining<=0) read(); timer=setInterval(()=>{remaining=Math.max(0,remaining-1); render(); if(remaining===0){clearInterval(timer); timer=null;}},1000);}
+    document.getElementById('startBtn').addEventListener('click',start); document.getElementById('resetBtn').addEventListener('click',()=>{if(timer) clearInterval(timer); timer=null; read();}); minutes.addEventListener('input',read); seconds.addEventListener('input',read); read();
+ 
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>
