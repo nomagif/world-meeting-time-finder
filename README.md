@@ -23,6 +23,16 @@ Build one strong domain with many focused internal tool pages instead of splitti
 - JSON Formatter & Validator
 - List Sorter & Deduper
 - UTM URL Builder
+- UTC to Local Time Converter
+- Time Zone Abbreviation Lookup
+- Date Difference Calculator
+- Business Days Calculator
+- Add Days to Date Calculator
+- Markdown Table Generator
+- Base64 Encoder Decoder
+- URL Encoder Decoder
+- Regex Tester
+- Text Case Converter
 
 ## Local preview
 

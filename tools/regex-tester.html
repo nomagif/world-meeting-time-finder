@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Regex Tester | Test a Regular Expression Locally</title>
+  <meta name="description" content="Test a JavaScript regular expression against sample text and see matches directly in your browser." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/regex-tester.html" />
+  <meta property="og:title" content="Regex Tester | Test a Regular Expression Locally" />
+  <meta property="og:description" content="Test a JavaScript regular expression against sample text and see matches directly in your browser." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/regex-tester.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "Regex Tester",
+            "url": "https://usefulonepagetools.com/tools/regex-tester.html",
+            "applicationCategory": "Web tools",
+            "operatingSystem": "Any",
+            "description": "Test a JavaScript regular expression against sample text and see matches directly in your browser.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Which regex flavor does this use?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "It uses JavaScript regular expressions."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can a bad regex break the page?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Invalid patterns are caught and shown as an error message."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is the text uploaded?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Matching runs locally in your browser."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Regex Tester",
+                    "item": "https://usefulonepagetools.com/tools/regex-tester.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="regex-tester-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Web tools</span>
+      <h1>Regex Tester</h1>
+      <p class="muted">Enter a JavaScript regular expression and sample text to see matching results.</p>
+    </div>
+    <div class="card">
+      <div class="row two"><div><label for="pattern">Pattern</label><input id="pattern" value="\b\w+@\w+\.\w+\b" /></div><div><label for="flags">Flags</label><input id="flags" value="g" /></div></div><label for="sample">Sample text</label><textarea id="sample" rows="8">Contact hello@example.com or support@example.org for help.</textarea><button id="testBtn" data-track="regex-tester-test">Test regex</button><div id="result" class="result"></div>
+    </div>
+    <div class="card small">
+      <h2>How to use this tool</h2>
+      <p class="muted">Enter a JavaScript regular expression and sample text to see matching results.</p>
+    </div>
+    <div class="card small">
+      <h2>When this tool is useful</h2>
+      <p class="muted">Use this for quick regex debugging before adding a pattern to code, a spreadsheet, or a data-cleanup workflow.</p>
+    </div>
+    <div class="card small">
+      <h2>Example use case</h2>
+      <p class="muted">Enter the pattern \b\w+@\w+\.\w+\b and sample text with an email address to confirm the match.</p>
+    </div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>Which regex flavor does this use?</h3><p class="muted">It uses JavaScript regular expressions.</p>
+      <h3>Can a bad regex break the page?</h3><p class="muted">Invalid patterns are caught and shown as an error message.</p>
+      <h3>Is the text uploaded?</h3><p class="muted">No. Matching runs locally in your browser.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="regex-tester-related-json-formatter-validator" href="./json-formatter-validator.html">JSON Formatter &amp; Validator</a> · <a data-track="regex-tester-related-word-character-counter" href="./word-character-counter.html">Word &amp; Character Counter</a> · <a data-track="regex-tester-related-text-case-converter" href="./text-case-converter.html">Text Case Converter</a> · <a data-track="regex-tester-related-all-tools" href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+    const pattern=document.getElementById('pattern'), flags=document.getElementById('flags'), sample=document.getElementById('sample'), result=document.getElementById('result');
+    function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+    function test(){try{const re=new RegExp(pattern.value,flags.value); const matches=[...sample.value.matchAll(re)]; result.innerHTML=matches.length?'<p><strong>'+matches.length+' match(es)</strong></p><ol>'+matches.map(m=>'<li><code>'+esc(m[0])+'</code> at index '+m.index+'</li>').join('')+'</ol>':'No matches found.';}catch(e){result.innerHTML='<strong>Invalid regex:</strong> '+esc(e.message);}}
+    document.getElementById('testBtn').addEventListener('click',test); test();
+    
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

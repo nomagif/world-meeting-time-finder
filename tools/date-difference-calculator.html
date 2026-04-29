@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Date Difference Calculator | Days Between Two Dates</title>
+  <meta name="description" content="Calculate the number of days between two dates, including optional end-date inclusion." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/date-difference-calculator.html" />
+  <meta property="og:title" content="Date Difference Calculator | Days Between Two Dates" />
+  <meta property="og:description" content="Calculate the number of days between two dates, including optional end-date inclusion." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/date-difference-calculator.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "Date Difference Calculator",
+            "url": "https://usefulonepagetools.com/tools/date-difference-calculator.html",
+            "applicationCategory": "Time tools",
+            "operatingSystem": "Any",
+            "description": "Calculate the number of days between two dates, including optional end-date inclusion.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Does it include the end date?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "You can choose whether to include the end date."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does time of day matter?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. This calculator works with whole calendar dates."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can the result be negative?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. If the end date is before the start date, the result shows a negative difference."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Date Difference Calculator",
+                    "item": "https://usefulonepagetools.com/tools/date-difference-calculator.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="date-difference-calculator-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Time tools</span>
+      <h1>Date Difference Calculator</h1>
+      <p class="muted">Choose two dates to calculate the difference in calendar days.</p>
+    </div>
+    <div class="card">
+      <div class="row two"><div><label for="startDate">Start date</label><input id="startDate" type="date" /></div><div><label for="endDate">End date</label><input id="endDate" type="date" /></div></div><label><input id="inclusive" type="checkbox" /> Include end date</label><button id="calcBtn" data-track="date-difference-calculator-calculate">Calculate days</button><div id="result" class="result"></div>
+    </div>
+    <div class="card small">
+      <h2>How to use this tool</h2>
+      <p class="muted">Choose two dates to calculate the difference in calendar days.</p>
+    </div>
+    <div class="card small">
+      <h2>When this tool is useful</h2>
+      <p class="muted">Use this for project timelines, travel planning, billing windows, event countdowns, and deadline checks.</p>
+    </div>
+    <div class="card small">
+      <h2>Example use case</h2>
+      <p class="muted">If a campaign starts on May 1 and ends on May 14, enter both dates to see whether the window is 13 days apart or 14 inclusive days.</p>
+    </div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>Does it include the end date?</h3><p class="muted">You can choose whether to include the end date.</p>
+      <h3>Does time of day matter?</h3><p class="muted">No. This calculator works with whole calendar dates.</p>
+      <h3>Can the result be negative?</h3><p class="muted">Yes. If the end date is before the start date, the result shows a negative difference.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="date-difference-calculator-related-add-days-to-date-calculator" href="./add-days-to-date-calculator.html">Add Days to Date Calculator</a> · <a data-track="date-difference-calculator-related-business-days-calculator" href="./business-days-calculator.html">Business Days Calculator</a> · <a data-track="date-difference-calculator-related-utc-to-local-time-converter" href="./utc-to-local-time-converter.html">UTC to Local Time Converter</a> · <a data-track="date-difference-calculator-related-all-tools" href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+    const start=document.getElementById('startDate'), end=document.getElementById('endDate'), inclusive=document.getElementById('inclusive'), result=document.getElementById('result');
+    const now=new Date(); start.value=now.toISOString().slice(0,10); const later=new Date(now); later.setDate(later.getDate()+14); end.value=later.toISOString().slice(0,10);
+    function utcDay(v){const [y,m,d]=v.split('-').map(Number); return Date.UTC(y,m-1,d)/86400000;}
+    function calc(){if(!start.value||!end.value){result.textContent='Choose both dates.'; return;} let days=utcDay(end.value)-utcDay(start.value); if(inclusive.checked) days+=days>=0?1:-1; result.innerHTML='<table><tbody><tr><th>Day difference</th><td>'+days.toLocaleString()+' days</td></tr><tr><th>Absolute difference</th><td>'+Math.abs(days).toLocaleString()+' days</td></tr></tbody></table>';}
+    document.getElementById('calcBtn').addEventListener('click',calc); inclusive.addEventListener('change',calc); calc();
+    
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

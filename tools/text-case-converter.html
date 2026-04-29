@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Text Case Converter | Uppercase, Lowercase, Title Case</title>
+  <meta name="description" content="Convert text to uppercase, lowercase, title case, sentence case, slug case, or camelCase locally in your browser." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/text-case-converter.html" />
+  <meta property="og:title" content="Text Case Converter | Uppercase, Lowercase, Title Case" />
+  <meta property="og:description" content="Convert text to uppercase, lowercase, title case, sentence case, slug case, or camelCase locally in your browser." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/text-case-converter.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "Text Case Converter",
+            "url": "https://usefulonepagetools.com/tools/text-case-converter.html",
+            "applicationCategory": "Text tools",
+            "operatingSystem": "Any",
+            "description": "Convert text to uppercase, lowercase, title case, sentence case, slug case, or camelCase locally in your browser.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Does it save my text?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Conversion runs locally in your browser."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What is slug case?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Slug case converts text to lowercase words separated by hyphens."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is title case perfect for every style guide?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. It is a practical quick formatter, not a full editorial style engine."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Text Case Converter",
+                    "item": "https://usefulonepagetools.com/tools/text-case-converter.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="text-case-converter-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Text tools</span>
+      <h1>Text Case Converter</h1>
+      <p class="muted">Paste text and convert it into common formats such as uppercase, lowercase, title case, slug case, and camelCase.</p>
+    </div>
+    <div class="card">
+      <label for="input">Input text</label><textarea id="input" rows="8">useful one-page tools for quick browser tasks</textarea><div class="row two"><button data-mode="upper" data-track="text-case-converter-upper">UPPERCASE</button><button data-mode="lower" data-track="text-case-converter-lower">lowercase</button><button data-mode="title" data-track="text-case-converter-title">Title Case</button><button data-mode="sentence" data-track="text-case-converter-sentence">Sentence case</button><button data-mode="slug" data-track="text-case-converter-slug">slug-case</button><button data-mode="camel" data-track="text-case-converter-camel">camelCase</button></div><label for="output">Output</label><textarea id="output" rows="8" readonly></textarea><button id="copyBtn" data-track="text-case-converter-copy">Copy output</button>
+    </div>
+    <div class="card small">
+      <h2>How to use this tool</h2>
+      <p class="muted">Paste text and convert it into common formats such as uppercase, lowercase, title case, slug case, and camelCase.</p>
+    </div>
+    <div class="card small">
+      <h2>When this tool is useful</h2>
+      <p class="muted">Use this for titles, filenames, slugs, labels, spreadsheet cleanup, and quick content formatting.</p>
+    </div>
+    <div class="card small">
+      <h2>Example use case</h2>
+      <p class="muted">Paste a rough heading, then convert it to title case for a page title or slug case for a URL path.</p>
+    </div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>Does it save my text?</h3><p class="muted">No. Conversion runs locally in your browser.</p>
+      <h3>What is slug case?</h3><p class="muted">Slug case converts text to lowercase words separated by hyphens.</p>
+      <h3>Is title case perfect for every style guide?</h3><p class="muted">No. It is a practical quick formatter, not a full editorial style engine.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="text-case-converter-related-word-character-counter" href="./word-character-counter.html">Word &amp; Character Counter</a> · <a data-track="text-case-converter-related-markdown-table-generator" href="./markdown-table-generator.html">Markdown Table Generator</a> · <a data-track="text-case-converter-related-csv-list-sorter-deduper" href="./csv-list-sorter-deduper.html">List Sorter &amp; Deduper</a> · <a data-track="text-case-converter-related-all-tools" href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+    const input=document.getElementById('input'), output=document.getElementById('output');
+    function words(s){return s.toLowerCase().match(/[a-z0-9]+/g)||[];}
+    function convert(mode){const v=input.value; let out=v; if(mode==='upper') out=v.toUpperCase(); if(mode==='lower') out=v.toLowerCase(); if(mode==='title') out=words(v).map(w=>w[0].toUpperCase()+w.slice(1)).join(' '); if(mode==='sentence') out=v.toLowerCase().replace(/(^\s*\w|[.!?]\s+\w)/g,c=>c.toUpperCase()); if(mode==='slug') out=words(v).join('-'); if(mode==='camel'){const ws=words(v); out=ws.map((w,i)=>i?w[0].toUpperCase()+w.slice(1):w).join('');} output.value=out;}
+    document.querySelectorAll('button[data-mode]').forEach(btn=>btn.addEventListener('click',()=>convert(btn.dataset.mode))); document.getElementById('copyBtn').addEventListener('click',()=>navigator.clipboard?.writeText(output.value)); convert('title');
+    
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

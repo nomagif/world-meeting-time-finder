@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Base64 Encoder Decoder | Encode or Decode Text Locally</title>
+  <meta name="description" content="Encode plain text to Base64 or decode Base64 back to readable text directly in your browser." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/base64-encoder-decoder.html" />
+  <meta property="og:title" content="Base64 Encoder Decoder | Encode or Decode Text Locally" />
+  <meta property="og:description" content="Encode plain text to Base64 or decode Base64 back to readable text directly in your browser." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/base64-encoder-decoder.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "Base64 Encoder Decoder",
+            "url": "https://usefulonepagetools.com/tools/base64-encoder-decoder.html",
+            "applicationCategory": "Web tools",
+            "operatingSystem": "Any",
+            "description": "Encode plain text to Base64 or decode Base64 back to readable text directly in your browser.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Is Base64 encryption?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Base64 is encoding, not security."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Is my text uploaded?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. Encoding and decoding run locally."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can it handle Unicode text?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. It uses TextEncoder and TextDecoder for UTF-8 text."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Base64 Encoder Decoder",
+                    "item": "https://usefulonepagetools.com/tools/base64-encoder-decoder.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="base64-encoder-decoder-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Web tools</span>
+      <h1>Base64 Encoder Decoder</h1>
+      <p class="muted">Paste text or Base64 and convert it locally in your browser.</p>
+    </div>
+    <div class="card">
+      <label for="input">Input</label><textarea id="input" rows="8">hello world</textarea><div class="row two"><button id="encodeBtn" data-track="base64-encoder-decoder-encode">Encode to Base64</button><button id="decodeBtn" data-track="base64-encoder-decoder-decode">Decode Base64</button></div><label for="output">Output</label><textarea id="output" rows="8" readonly></textarea>
+    </div>
+    <div class="card small">
+      <h2>How to use this tool</h2>
+      <p class="muted">Paste text or Base64 and convert it locally in your browser.</p>
+    </div>
+    <div class="card small">
+      <h2>When this tool is useful</h2>
+      <p class="muted">Use this for quick API testing, config snippets, basic debugging, and checking encoded text.</p>
+    </div>
+    <div class="card small">
+      <h2>Example use case</h2>
+      <p class="muted">Paste “hello world” and encode it to Base64, or paste a Base64 string from a config file to decode and inspect it.</p>
+    </div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>Is Base64 encryption?</h3><p class="muted">No. Base64 is encoding, not security.</p>
+      <h3>Is my text uploaded?</h3><p class="muted">No. Encoding and decoding run locally.</p>
+      <h3>Can it handle Unicode text?</h3><p class="muted">Yes. It uses TextEncoder and TextDecoder for UTF-8 text.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="base64-encoder-decoder-related-url-encoder-decoder" href="./url-encoder-decoder.html">URL Encoder Decoder</a> · <a data-track="base64-encoder-decoder-related-json-formatter-validator" href="./json-formatter-validator.html">JSON Formatter &amp; Validator</a> · <a data-track="base64-encoder-decoder-related-regex-tester" href="./regex-tester.html">Regex Tester</a> · <a data-track="base64-encoder-decoder-related-all-tools" href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+    const input=document.getElementById('input'), output=document.getElementById('output');
+    function encode(){const bytes=new TextEncoder().encode(input.value); let bin=''; bytes.forEach(b=>bin+=String.fromCharCode(b)); output.value=btoa(bin);}
+    function decode(){try{const bin=atob(input.value.trim()); const bytes=Uint8Array.from(bin,c=>c.charCodeAt(0)); output.value=new TextDecoder().decode(bytes);}catch(e){output.value='Could not decode Base64: '+e.message;}}
+    document.getElementById('encodeBtn').addEventListener('click',encode); document.getElementById('decodeBtn').addEventListener('click',decode); encode();
+    
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

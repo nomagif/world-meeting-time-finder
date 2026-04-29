@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UTC to Local Time Converter | Convert UTC to Local Times</title>
+  <meta name="description" content="Convert a UTC date and time to local times for major cities and your browser time zone in one simple page." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/utc-to-local-time-converter.html" />
+  <meta property="og:title" content="UTC to Local Time Converter | Convert UTC to Local Times" />
+  <meta property="og:description" content="Convert a UTC date and time to local times for major cities and your browser time zone in one simple page." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/utc-to-local-time-converter.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "UTC to Local Time Converter",
+            "url": "https://usefulonepagetools.com/tools/utc-to-local-time-converter.html",
+            "applicationCategory": "Time tools",
+            "operatingSystem": "Any",
+            "description": "Convert a UTC date and time to local times for major cities and your browser time zone in one simple page.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "Does it handle daylight saving time?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes. It uses the browser time zone database through Intl.DateTimeFormat."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does the conversion happen on a server?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "No. The conversion runs in your browser."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Can I use it for calendar invites?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes for quick checking, but confirm important meetings in your calendar app before sending final invites."
+                    }
+                }
+            ]
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "UTC to Local Time Converter",
+                    "item": "https://usefulonepagetools.com/tools/utc-to-local-time-converter.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="utc-to-local-time-converter-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Time tools</span>
+      <h1>UTC to Local Time Converter</h1>
+      <p class="muted">Enter a UTC date and time to see matching local times in major cities and your own browser time zone.</p>
+    </div>
+    <div class="card">
+      <div class="row two"><div><label for="utcDate">UTC date</label><input id="utcDate" type="date" /></div><div><label for="utcTime">UTC time</label><input id="utcTime" type="time" value="12:00" /></div></div><button id="convertBtn" data-track="utc-to-local-time-converter-convert">Convert UTC time</button><div id="result" class="result"></div>
+    </div>
+    <div class="card small">
+      <h2>How to use this tool</h2>
+      <p class="muted">Enter a UTC date and time to see matching local times in major cities and your own browser time zone.</p>
+    </div>
+    <div class="card small">
+      <h2>When this tool is useful</h2>
+      <p class="muted">Use this when an API, log file, calendar invite, or support message gives a time in UTC and you need a fast local-time translation.</p>
+    </div>
+    <div class="card small">
+      <h2>Example use case</h2>
+      <p class="muted">A deployment log says an event happened at 14:30 UTC. Enter the date and time here to confirm what that means in Tokyo, New York, London, and Singapore.</p>
+    </div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>Does it handle daylight saving time?</h3><p class="muted">Yes. It uses the browser time zone database through Intl.DateTimeFormat.</p>
+      <h3>Does the conversion happen on a server?</h3><p class="muted">No. The conversion runs in your browser.</p>
+      <h3>Can I use it for calendar invites?</h3><p class="muted">Yes for quick checking, but confirm important meetings in your calendar app before sending final invites.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="utc-to-local-time-converter-related-unix-timestamp-converter" href="./unix-timestamp-converter.html">Unix Timestamp Converter</a> · <a data-track="utc-to-local-time-converter-related-best-world-meeting-time-finder" href="./best-world-meeting-time-finder.html">World Meeting Time Finder</a> · <a data-track="utc-to-local-time-converter-related-time-zone-abbreviation-lookup" href="./time-zone-abbreviation-lookup.html">Time Zone Abbreviation Lookup</a> · <a data-track="utc-to-local-time-converter-related-all-tools" href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+    const zones=[['Your browser time zone',Intl.DateTimeFormat().resolvedOptions().timeZone],['UTC','UTC'],['Tokyo','Asia/Tokyo'],['New York','America/New_York'],['London','Europe/London'],['Berlin','Europe/Berlin'],['Singapore','Asia/Singapore'],['Sydney','Australia/Sydney']];
+    const dateEl=document.getElementById('utcDate'), timeEl=document.getElementById('utcTime'), result=document.getElementById('result');
+    dateEl.value=new Date().toISOString().slice(0,10);
+    function fmt(date,zone){return new Intl.DateTimeFormat('en-US',{timeZone:zone,weekday:'short',year:'numeric',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false,timeZoneName:'short'}).format(date);}
+    function convert(){const [y,m,d]=dateEl.value.split('-').map(Number); const [hh,mm]=timeEl.value.split(':').map(Number); if(!y||!m||!d||!Number.isFinite(hh)){result.textContent='Enter a valid UTC date and time.'; return;} const utc=new Date(Date.UTC(y,m-1,d,hh,mm||0)); result.innerHTML='<table><thead><tr><th>Place</th><th>Local time</th></tr></thead><tbody>'+zones.map(([label,zone])=>'<tr><td>'+label+'</td><td>'+fmt(utc,zone)+'</td></tr>').join('')+'</tbody></table>';}
+    document.getElementById('convertBtn').addEventListener('click',convert); convert();
+    
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>
