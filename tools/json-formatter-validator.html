@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JSON Formatter and Validator | Format JSON Locally</title>
+  <meta name="description" content="Paste JSON to validate and pretty-print it locally in your browser without uploading the content." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/json-formatter-validator.html" />
+  <meta property="og:title" content="JSON Formatter and Validator | Format JSON Locally" />
+  <meta property="og:description" content="Paste JSON to validate and pretty-print it locally in your browser without uploading the content." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/json-formatter-validator.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "JSON Formatter & Validator",
+            "url": "https://usefulonepagetools.com/tools/json-formatter-validator.html",
+            "applicationCategory": "Web tools",
+            "operatingSystem": "Any",
+            "description": "Paste JSON to validate and pretty-print it locally in your browser without uploading the content.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "JSON Formatter & Validator",
+                    "item": "https://usefulonepagetools.com/tools/json-formatter-validator.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="json-formatter-validator-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Web tools</span>
+      <h1>JSON Formatter &amp; Validator</h1>
+      <p class="muted">Paste JSON to validate it and format it with readable indentation in your browser.</p>
+    </div>
+    <div class="card">
+      <label for="jsonInput">JSON input</label><textarea id="jsonInput" rows="9" placeholder='{"hello":"world"}'></textarea><div class="row two"><button id="formatBtn" data-track="json-formatter-validator-format">Format JSON</button><button id="minifyBtn" data-track="json-formatter-validator-minify">Minify JSON</button></div><pre id="result" class="result"></pre>
+    </div>
+    <div class="card small">
+      <p>Paste JSON to validate it and format it with readable indentation in your browser.</p>
+    </div>
+    <div class="card small">
+      <h2>When this tool is useful</h2>
+      <p class="muted">Use this for API responses, configuration snippets, webhook payloads, and quick debugging.</p>
+    </div>
+    <div class="card small">
+      <h2>Example use case</h2>
+      <p class="muted">Paste a compact API response to check whether it is valid JSON and make it easier to read before sharing with a teammate.</p>
+    </div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>Is my JSON uploaded?</h3><p class="muted">No. Parsing and formatting run locally in the browser.</p>
+      <h3>Can it fix invalid JSON?</h3><p class="muted">No. It reports the parse error so you can fix the source.</p>
+      <h3>Does it preserve key order?</h3><p class="muted">JavaScript parsing generally preserves object insertion order for normal JSON objects.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="json-formatter-validator-related-all-tools" href="../index.html">All tools</a> · <a data-track="json-formatter-validator-related-json" href="./json-formatter-validator.html">JSON Formatter</a> · <a data-track="json-formatter-validator-related-percentage" href="./percentage-change-calculator.html">Percentage Change Calculator</a></p></div>
+  </div>
+  <script>
+    const input=document.getElementById('jsonInput'), result=document.getElementById('result'); function run(space){try{const obj=JSON.parse(input.value); result.textContent=JSON.stringify(obj,null,space); result.style.color='';}catch(e){result.textContent='Invalid JSON: '+e.message; result.style.color='#fca5a5';}} document.getElementById('formatBtn').addEventListener('click',()=>run(2)); document.getElementById('minifyBtn').addEventListener('click',()=>run(0)); input.value='{"status":"ok","items":[{"name":"Example","count":3}]}'; run(2);
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

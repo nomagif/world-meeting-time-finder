@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>List Sorter and Deduper | Clean One Item Per Line</title>
+  <meta name="description" content="Sort, trim, and remove duplicate lines from a pasted list locally in your browser." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/csv-list-sorter-deduper.html" />
+  <meta property="og:title" content="List Sorter and Deduper | Clean One Item Per Line" />
+  <meta property="og:description" content="Sort, trim, and remove duplicate lines from a pasted list locally in your browser." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/csv-list-sorter-deduper.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "List Sorter & Deduper",
+            "url": "https://usefulonepagetools.com/tools/csv-list-sorter-deduper.html",
+            "applicationCategory": "Text tools",
+            "operatingSystem": "Any",
+            "description": "Sort, trim, and remove duplicate lines from a pasted list locally in your browser.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "List Sorter & Deduper",
+                    "item": "https://usefulonepagetools.com/tools/csv-list-sorter-deduper.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="csv-list-sorter-deduper-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Text tools</span>
+      <h1>List Sorter &amp; Deduper</h1>
+      <p class="muted">Paste a list to trim whitespace, remove empty lines, deduplicate items, and sort the result.</p>
+    </div>
+    <div class="card">
+      <label for="listInput">List input</label><textarea id="listInput" rows="8" placeholder="One item per line"></textarea><button id="cleanBtn" data-track="csv-list-sorter-deduper-clean">Clean list</button><label for="resultText">Cleaned result</label><textarea id="resultText" rows="8" readonly></textarea><div id="summary" class="result"></div>
+    </div>
+    <div class="card small">
+      <p>Paste a list to trim whitespace, remove empty lines, deduplicate items, and sort the result.</p>
+    </div>
+    <div class="card small">
+      <h2>When this tool is useful</h2>
+      <p class="muted">Use this for keyword lists, email exports, SKU lists, tags, campaign names, and quick spreadsheet cleanup.</p>
+    </div>
+    <div class="card small">
+      <h2>Example use case</h2>
+      <p class="muted">Paste a messy keyword list with duplicates, click clean list, and copy the sorted unique result back into your planning sheet.</p>
+    </div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>Does this process CSV columns?</h3><p class="muted">This lightweight version treats each line as one item.</p>
+      <h3>Is the list uploaded?</h3><p class="muted">No. Cleanup runs locally in your browser.</p>
+      <h3>Is sorting case-sensitive?</h3><p class="muted">Sorting uses a simple locale-aware comparison and deduping is case-sensitive by default.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="csv-list-sorter-deduper-related-all-tools" href="../index.html">All tools</a> · <a data-track="csv-list-sorter-deduper-related-json" href="./json-formatter-validator.html">JSON Formatter</a> · <a data-track="csv-list-sorter-deduper-related-percentage" href="./percentage-change-calculator.html">Percentage Change Calculator</a></p></div>
+  </div>
+  <script>
+    const input=document.getElementById('listInput'), output=document.getElementById('resultText'), summary=document.getElementById('summary');
+    function clean(){
+      const original=input.value.split(/\r?\n/);
+      const items=original.map(s=>s.trim()).filter(Boolean);
+      const unique=[...new Set(items)].sort((a,b)=>a.localeCompare(b));
+      output.value=unique.join('\n');
+      summary.innerHTML='<table><tbody><tr><th>Input lines</th><td>'+original.length+'</td></tr><tr><th>Non-empty lines</th><td>'+items.length+'</td></tr><tr><th>Unique lines</th><td>'+unique.length+'</td></tr><tr><th>Removed duplicates/blank lines</th><td>'+(original.length-unique.length)+'</td></tr></tbody></table>';
+    }
+    document.getElementById('cleanBtn').addEventListener('click',clean);
+    input.value='ai tools\nkeyword research\nai tools\n landing page\nkeyword research';
+    clean();
+
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

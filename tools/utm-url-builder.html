@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>UTM URL Builder | Create Campaign Tracking Links</title>
+  <meta name="description" content="Build a URL with UTM source, medium, campaign, term, and content parameters in one browser-only tool." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/utm-url-builder.html" />
+  <meta property="og:title" content="UTM URL Builder | Create Campaign Tracking Links" />
+  <meta property="og:description" content="Build a URL with UTM source, medium, campaign, term, and content parameters in one browser-only tool." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/utm-url-builder.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "UTM URL Builder",
+            "url": "https://usefulonepagetools.com/tools/utm-url-builder.html",
+            "applicationCategory": "Marketing tools",
+            "operatingSystem": "Any",
+            "description": "Build a URL with UTM source, medium, campaign, term, and content parameters in one browser-only tool.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "UTM URL Builder",
+                    "item": "https://usefulonepagetools.com/tools/utm-url-builder.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="utm-url-builder-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Marketing tools</span>
+      <h1>UTM URL Builder</h1>
+      <p class="muted">Enter a landing page URL and campaign fields to create a clean UTM tracking link.</p>
+    </div>
+    <div class="card">
+      <label for="baseUrl">Landing page URL</label><input id="baseUrl" value="https://example.com/landing" /><div class="row two"><div><label for="source">utm_source</label><input id="source" value="newsletter" /></div><div><label for="medium">utm_medium</label><input id="medium" value="email" /></div></div><div class="row two"><div><label for="campaign">utm_campaign</label><input id="campaign" value="spring_launch" /></div><div><label for="term">utm_term</label><input id="term" placeholder="optional" /></div></div><label for="content">utm_content</label><input id="content" placeholder="optional" /><button id="buildBtn" data-track="utm-url-builder-build">Build UTM URL</button><div id="result" class="result"></div>
+    </div>
+    <div class="card small">
+      <p>Enter a landing page URL and campaign fields to create a clean UTM tracking link.</p>
+    </div>
+    <div class="card small">
+      <h2>When this tool is useful</h2>
+      <p class="muted">Use this before sharing newsletter links, social posts, paid campaigns, partner links, and product launch URLs.</p>
+    </div>
+    <div class="card small">
+      <h2>Example use case</h2>
+      <p class="muted">Enter your landing page, set source to newsletter, medium to email, and campaign to spring_launch to create a trackable link.</p>
+    </div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>Does this shorten URLs?</h3><p class="muted">No. It builds the full URL so you can use it directly or send it to a separate shortener.</p>
+      <h3>Are fields required?</h3><p class="muted">A base URL is required. Source, medium, and campaign are strongly recommended.</p>
+      <h3>Does it support existing query parameters?</h3><p class="muted">Yes. It appends or updates UTM parameters on the URL.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="utm-url-builder-related-all-tools" href="../index.html">All tools</a> · <a data-track="utm-url-builder-related-json" href="./json-formatter-validator.html">JSON Formatter</a> · <a data-track="utm-url-builder-related-percentage" href="./percentage-change-calculator.html">Percentage Change Calculator</a></p></div>
+  </div>
+  <script>
+    const fields=['source','medium','campaign','term','content']; function build(){const result=document.getElementById('result'); try{const url=new URL(document.getElementById('baseUrl').value); fields.forEach(f=>{const v=document.getElementById(f).value.trim(); const key='utm_'+f; if(v) url.searchParams.set(key,v); else url.searchParams.delete(key);}); result.innerHTML='<p><code id="builtUrl"></code></p><button id="copyUrl" data-track="utm-url-builder-copy">Copy URL</button>'; document.getElementById('builtUrl').textContent=url.toString(); document.getElementById('copyUrl').addEventListener('click',()=>navigator.clipboard?.writeText(url.toString()));}catch(e){result.textContent='Enter a valid full URL, including https://';}} document.getElementById('buildBtn').addEventListener('click',build); build();
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

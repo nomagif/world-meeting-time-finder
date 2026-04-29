@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loan Payment Calculator | Monthly Payment Estimate</title>
+  <meta name="description" content="Estimate a monthly loan payment from loan amount, annual interest rate, and term in years." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/loan-payment-calculator.html" />
+  <meta property="og:title" content="Loan Payment Calculator | Monthly Payment Estimate" />
+  <meta property="og:description" content="Estimate a monthly loan payment from loan amount, annual interest rate, and term in years." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/loan-payment-calculator.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "WebApplication",
+            "name": "Loan Payment Calculator",
+            "url": "https://usefulonepagetools.com/tools/loan-payment-calculator.html",
+            "applicationCategory": "Money calculators",
+            "operatingSystem": "Any",
+            "description": "Estimate a monthly loan payment from loan amount, annual interest rate, and term in years.",
+            "isAccessibleForFree": true,
+            "publisher": {
+                "@type": "Organization",
+                "name": "Useful One-Page Tools",
+                "url": "https://usefulonepagetools.com/"
+            }
+        },
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "All tools",
+                    "item": "https://usefulonepagetools.com/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Loan Payment Calculator",
+                    "item": "https://usefulonepagetools.com/tools/loan-payment-calculator.html"
+                }
+            ]
+        }
+    ]
+}
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="loan-payment-calculator-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Money calculators</span>
+      <h1>Loan Payment Calculator</h1>
+      <p class="muted">Calculate a simple estimated monthly payment for a fixed-rate loan.</p>
+    </div>
+    <div class="card">
+      <div class="row two"><div><label for="amount">Loan amount</label><input id="amount" type="number" step="any" value="250000" /></div><div><label for="rate">Annual interest (%)</label><input id="rate" type="number" step="any" value="6.5" /></div></div><div class="row two"><div><label for="years">Term (years)</label><input id="years" type="number" step="any" value="30" /></div><div><label>&nbsp;</label><button id="calcBtn" data-track="loan-payment-calculator-calculate">Calculate payment</button></div></div><div id="result" class="result"></div>
+    </div>
+    <div class="card small">
+      <p>Calculate a simple estimated monthly payment for a fixed-rate loan.</p>
+    </div>
+    <div class="card small">
+      <h2>When this tool is useful</h2>
+      <p class="muted">Use it to compare rough loan scenarios before opening a spreadsheet or talking with a lender.</p>
+    </div>
+    <div class="card small">
+      <h2>Example use case</h2>
+      <p class="muted">Enter a 250,000 loan, 6.5% annual interest, and 30 years to estimate the monthly payment before comparing alternatives.</p>
+    </div>
+    <div class="card small">
+      <h2>FAQ</h2>
+      <h3>Does this include taxes and insurance?</h3><p class="muted">No. It estimates principal and interest only.</p>
+      <h3>Can I use any currency?</h3><p class="muted">Yes. The math is currency-agnostic; labels use generic amounts.</p>
+      <h3>Is this exact lender pricing?</h3><p class="muted">No. Treat it as a quick estimate.</p>
+    </div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="loan-payment-calculator-related-all-tools" href="../index.html">All tools</a> · <a data-track="loan-payment-calculator-related-json" href="./json-formatter-validator.html">JSON Formatter</a> · <a data-track="loan-payment-calculator-related-percentage" href="./percentage-change-calculator.html">Percentage Change Calculator</a></p></div>
+  </div>
+  <script>
+    const result=document.getElementById('result'); function money(n){return n.toLocaleString(undefined,{style:'currency',currency:'USD',maximumFractionDigits:2});} function calc(){const amount=Number(document.getElementById('amount').value), rate=Number(document.getElementById('rate').value)/100/12, months=Number(document.getElementById('years').value)*12; if(!Number.isFinite(amount)||!Number.isFinite(rate)||!Number.isFinite(months)||amount<=0||months<=0){result.textContent='Enter valid loan details.'; return;} const payment=rate===0?amount/months:amount*rate/(1-Math.pow(1+rate,-months)); result.innerHTML='<table><tbody><tr><th>Estimated monthly payment</th><td>'+money(payment)+'</td></tr><tr><th>Total paid</th><td>'+money(payment*months)+'</td></tr><tr><th>Total interest</th><td>'+money(payment*months-amount)+'</td></tr></tbody></table>'; } document.getElementById('calcBtn').addEventListener('click',calc); calc();
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

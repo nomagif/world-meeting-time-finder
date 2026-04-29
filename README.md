@@ -1,28 +1,45 @@
-# world-meeting-time-finder
+# Useful One-Page Tools
 
-Single-purpose static site for checking the same meeting time across major cities.
+A low-cost static hub for small, single-purpose browser tools under one domain: `usefulonepagetools.com`.
+
+## Strategy
+
+Build one strong domain with many focused internal tool pages instead of splitting tools across many domains. The goal is a low-running-cost asset: Cloudflare Pages, static HTML/CSS/JS, no login, no database, and minimal external API dependency.
+
+## Current tools
+
+- World Meeting Time Finder
+- US, Europe & Asia Time Overlap Tool
+- AI Tools Pricing Comparison
+- Website Response Time Checker
+- USD ⇄ JPY Inflation Adjusted Calculator
+- Unix Timestamp Converter
+- Percentage Change Calculator
+- Compound Interest Calculator
+- Loan Payment Calculator
+- Sales Tax Calculator
+- Password Generator
+- Word & Character Counter
+- JSON Formatter & Validator
+- List Sorter & Deduper
+- UTM URL Builder
 
 ## Local preview
 
 ```bash
-cd /Users/noma/.openclaw/workspace/projects/world-meeting-time-finder
+cd /Users/noma/.openclaw/workspace/projects/one-page-tools
 python3 -m http.server 4190
 ```
 
-## Files
-
-- `index.html`
-- `404.html`
-- `robots.txt`
-- `sitemap.xml`
-- `assets/styles.css`
+Then open `http://localhost:4190/`.
 
 ## Deploy
 
 Cloudflare Pages:
+
 - Framework preset: `None`
 - Build command: empty
-- Build output directory: `projects/world-meeting-time-finder`
+- Build output directory: repository root / static output directory used by the Pages project
 
 ## Lightweight click analytics
 
@@ -30,10 +47,10 @@ The site includes a tiny first-party event tracker:
 
 - `assets/analytics.js` records clicks on elements with `data-track`.
 - `functions/api/event.js` receives events on Cloudflare Pages at `/api/event`.
-- If an R2 bucket binding named `ONE_PAGE_TOOLS_ANALYTICS_BUCKET` (or `ANALYTICS_BUCKET`) exists, events are stored as `analytics/events/YYYY-MM-DD/*.json`.
+- If an R2 bucket binding named `ONE_PAGE_TOOLS_ANALYTICS_BUCKET` or `ANALYTICS_BUCKET` exists, events are stored as `analytics/events/YYYY-MM-DD/*.json`.
 - Without a bucket binding, events are logged to the Pages Function console and the endpoint still returns OK.
 
-Tracked events intentionally avoid ad-click tracking. They cover tool buttons, hub links, related-tool links, and official external links.
+Tracked events intentionally avoid ad-click tracking.
 
 To analyze exported/downloaded event JSON locally:
 
