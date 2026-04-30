@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>JSON Formatter and Validator | Format JSON Locally</title>
   <meta name="description" content="Paste JSON to validate and pretty-print it locally in your browser without uploading the content." />
-  <link rel="canonical" href="https://usefulonepagetools.com/tools/json-formatter-validator.html" />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/json-formatter-validator" />
   <meta property="og:title" content="JSON Formatter and Validator | Format JSON Locally" />
   <meta property="og:description" content="Paste JSON to validate and pretty-print it locally in your browser without uploading the content." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://usefulonepagetools.com/tools/json-formatter-validator.html" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/json-formatter-validator" />
   <meta name="twitter:card" content="summary" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../assets/styles.css" />
@@ -20,7 +20,7 @@
         {
             "@type": "WebApplication",
             "name": "JSON Formatter & Validator",
-            "url": "https://usefulonepagetools.com/tools/json-formatter-validator.html",
+            "url": "https://usefulonepagetools.com/tools/json-formatter-validator",
             "applicationCategory": "Web tools",
             "operatingSystem": "Any",
             "description": "Paste JSON to validate and pretty-print it locally in your browser without uploading the content.",
@@ -44,7 +44,7 @@
                     "@type": "ListItem",
                     "position": 2,
                     "name": "JSON Formatter & Validator",
-                    "item": "https://usefulonepagetools.com/tools/json-formatter-validator.html"
+                    "item": "https://usefulonepagetools.com/tools/json-formatter-validator"
                 }
             ]
         }
@@ -80,7 +80,7 @@
       <h3>Can it fix invalid JSON?</h3><p class="muted">No. It reports the parse error so you can fix the source.</p>
       <h3>Does it preserve key order?</h3><p class="muted">JavaScript parsing generally preserves object insertion order for normal JSON objects.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a data-track="json-formatter-validator-related-all-tools" href="../index.html">All tools</a> · <a data-track="json-formatter-validator-related-json" href="./json-formatter-validator.html">JSON Formatter</a> · <a data-track="json-formatter-validator-related-percentage" href="./percentage-change-calculator.html">Percentage Change Calculator</a></p></div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="json-formatter-validator-related-all-tools" href="../index.html">All tools</a> · <a data-track="json-formatter-validator-related-json" href="./json-formatter-validator">JSON Formatter</a> · <a data-track="json-formatter-validator-related-percentage" href="./percentage-change-calculator">Percentage Change Calculator</a></p></div>
   </div>
   <script>
     const input=document.getElementById('jsonInput'), result=document.getElementById('result'); function run(space){try{const obj=JSON.parse(input.value); result.textContent=JSON.stringify(obj,null,space); result.style.color='';}catch(e){result.textContent='Invalid JSON: '+e.message; result.style.color='#fca5a5';}} document.getElementById('formatBtn').addEventListener('click',()=>run(2)); document.getElementById('minifyBtn').addEventListener('click',()=>run(0)); input.value='{"status":"ok","items":[{"name":"Example","count":3}]}'; run(2);

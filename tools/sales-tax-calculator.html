@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sales Tax Calculator | Add or Remove Tax Quickly</title>
   <meta name="description" content="Add sales tax to a price or remove included tax from a total with a lightweight browser calculator." />
-  <link rel="canonical" href="https://usefulonepagetools.com/tools/sales-tax-calculator.html" />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/sales-tax-calculator" />
   <meta property="og:title" content="Sales Tax Calculator | Add or Remove Tax Quickly" />
   <meta property="og:description" content="Add sales tax to a price or remove included tax from a total with a lightweight browser calculator." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://usefulonepagetools.com/tools/sales-tax-calculator.html" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/sales-tax-calculator" />
   <meta name="twitter:card" content="summary" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../assets/styles.css" />
@@ -20,7 +20,7 @@
         {
             "@type": "WebApplication",
             "name": "Sales Tax Calculator",
-            "url": "https://usefulonepagetools.com/tools/sales-tax-calculator.html",
+            "url": "https://usefulonepagetools.com/tools/sales-tax-calculator",
             "applicationCategory": "Money calculators",
             "operatingSystem": "Any",
             "description": "Add sales tax to a price or remove included tax from a total with a lightweight browser calculator.",
@@ -44,7 +44,7 @@
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Sales Tax Calculator",
-                    "item": "https://usefulonepagetools.com/tools/sales-tax-calculator.html"
+                    "item": "https://usefulonepagetools.com/tools/sales-tax-calculator"
                 }
             ]
         }
@@ -80,7 +80,7 @@
       <h3>Can it remove tax from a tax-included price?</h3><p class="muted">Yes. Choose remove tax to estimate the pre-tax amount.</p>
       <h3>Can I use VAT?</h3><p class="muted">Yes. The same math works for VAT-style percentages.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a data-track="sales-tax-calculator-related-all-tools" href="../index.html">All tools</a> · <a data-track="sales-tax-calculator-related-json" href="./json-formatter-validator.html">JSON Formatter</a> · <a data-track="sales-tax-calculator-related-percentage" href="./percentage-change-calculator.html">Percentage Change Calculator</a></p></div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="sales-tax-calculator-related-all-tools" href="../index.html">All tools</a> · <a data-track="sales-tax-calculator-related-json" href="./json-formatter-validator">JSON Formatter</a> · <a data-track="sales-tax-calculator-related-percentage" href="./percentage-change-calculator">Percentage Change Calculator</a></p></div>
   </div>
   <script>
     const result=document.getElementById('result'); function money(n){return n.toLocaleString(undefined,{style:'currency',currency:'USD',maximumFractionDigits:2});} function calc(){const price=Number(document.getElementById('price').value), rate=Number(document.getElementById('rate').value)/100, mode=document.getElementById('mode').value; if(!Number.isFinite(price)||!Number.isFinite(rate)){result.textContent='Enter valid price and tax rate.'; return;} let base,tax,total; if(mode==='remove'){base=price/(1+rate); tax=price-base; total=price;} else {base=price; tax=price*rate; total=base+tax;} result.innerHTML='<table><tbody><tr><th>Pre-tax amount</th><td>'+money(base)+'</td></tr><tr><th>Tax amount</th><td>'+money(tax)+'</td></tr><tr><th>Total</th><td>'+money(total)+'</td></tr></tbody></table>'; } document.getElementById('calcBtn').addEventListener('click',calc); calc();

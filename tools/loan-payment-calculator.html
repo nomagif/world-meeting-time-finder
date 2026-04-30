@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Loan Payment Calculator | Monthly Payment Estimate</title>
   <meta name="description" content="Estimate a monthly loan payment from loan amount, annual interest rate, and term in years." />
-  <link rel="canonical" href="https://usefulonepagetools.com/tools/loan-payment-calculator.html" />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/loan-payment-calculator" />
   <meta property="og:title" content="Loan Payment Calculator | Monthly Payment Estimate" />
   <meta property="og:description" content="Estimate a monthly loan payment from loan amount, annual interest rate, and term in years." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://usefulonepagetools.com/tools/loan-payment-calculator.html" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/loan-payment-calculator" />
   <meta name="twitter:card" content="summary" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../assets/styles.css" />
@@ -20,7 +20,7 @@
         {
             "@type": "WebApplication",
             "name": "Loan Payment Calculator",
-            "url": "https://usefulonepagetools.com/tools/loan-payment-calculator.html",
+            "url": "https://usefulonepagetools.com/tools/loan-payment-calculator",
             "applicationCategory": "Money calculators",
             "operatingSystem": "Any",
             "description": "Estimate a monthly loan payment from loan amount, annual interest rate, and term in years.",
@@ -44,7 +44,7 @@
                     "@type": "ListItem",
                     "position": 2,
                     "name": "Loan Payment Calculator",
-                    "item": "https://usefulonepagetools.com/tools/loan-payment-calculator.html"
+                    "item": "https://usefulonepagetools.com/tools/loan-payment-calculator"
                 }
             ]
         }
@@ -80,7 +80,7 @@
       <h3>Can I use any currency?</h3><p class="muted">Yes. The math is currency-agnostic; labels use generic amounts.</p>
       <h3>Is this exact lender pricing?</h3><p class="muted">No. Treat it as a quick estimate.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a data-track="loan-payment-calculator-related-all-tools" href="../index.html">All tools</a> · <a data-track="loan-payment-calculator-related-json" href="./json-formatter-validator.html">JSON Formatter</a> · <a data-track="loan-payment-calculator-related-percentage" href="./percentage-change-calculator.html">Percentage Change Calculator</a></p></div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="loan-payment-calculator-related-all-tools" href="../index.html">All tools</a> · <a data-track="loan-payment-calculator-related-json" href="./json-formatter-validator">JSON Formatter</a> · <a data-track="loan-payment-calculator-related-percentage" href="./percentage-change-calculator">Percentage Change Calculator</a></p></div>
   </div>
   <script>
     const result=document.getElementById('result'); function money(n){return n.toLocaleString(undefined,{style:'currency',currency:'USD',maximumFractionDigits:2});} function calc(){const amount=Number(document.getElementById('amount').value), rate=Number(document.getElementById('rate').value)/100/12, months=Number(document.getElementById('years').value)*12; if(!Number.isFinite(amount)||!Number.isFinite(rate)||!Number.isFinite(months)||amount<=0||months<=0){result.textContent='Enter valid loan details.'; return;} const payment=rate===0?amount/months:amount*rate/(1-Math.pow(1+rate,-months)); result.innerHTML='<table><tbody><tr><th>Estimated monthly payment</th><td>'+money(payment)+'</td></tr><tr><th>Total paid</th><td>'+money(payment*months)+'</td></tr><tr><th>Total interest</th><td>'+money(payment*months-amount)+'</td></tr></tbody></table>'; } document.getElementById('calcBtn').addEventListener('click',calc); calc();
