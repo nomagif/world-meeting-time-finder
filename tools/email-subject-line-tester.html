@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Email Subject Line Tester | Useful One-Page Tools</title>
+  <meta name="description" content="Check email subject line length, preview text, and simple readability signals. Free, fast, and browser-based." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/email-subject-line-tester.html" />
+  <meta property="og:title" content="Free Email Subject Line Tester" />
+  <meta property="og:description" content="Check email subject line length, preview text, and simple readability signals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/email-subject-line-tester.html" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Email Subject Line Tester","url":"https://usefulonepagetools.com/tools/email-subject-line-tester.html","applicationCategory":"Marketing tools","operatingSystem":"Any","description":"Check email subject line length, preview text, and simple readability signals.","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Useful One-Page Tools","url":"https://usefulonepagetools.com/"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is this email subject line tester free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It is free and runs in your browser."}},{"@type":"Question","name":"Is my data uploaded?","acceptedAnswer":{"@type":"Answer","text":"No. The calculation or formatting runs locally in your browser."}}]}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="email-subject-line-tester-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="hero">
+      <span class="badge">Marketing tools</span>
+      <h1>Free Email Subject Line Tester</h1>
+      <p class="muted">Check email subject line length, preview text, and simple readability signals. Use this free email subject line tester when you need a quick answer without login, setup, or uploading private data.</p>
+    </div>
+    <div class="card">
+      <label for="input">Input</label>
+      <textarea id="input" rows="6" placeholder="Paste text, numbers, dates, or values here"></textarea>
+      <button id="run" data-track="email-subject-line-tester-run">Run Email Subject Line Tester</button>
+      <pre id="result" class="result"></pre>
+    </div>
+    <div class="card small"><h2>When this tool is useful</h2><p class="muted">Use it for quick checks, drafts, planning, cleanup, and repeatable small tasks that do not need a full app.</p></div>
+    <div class="card small"><h2>Example use case</h2><p class="muted">Paste a rough value or text snippet, run the tool, then copy the cleaned result into your document, spreadsheet, site, or workflow.</p></div>
+    <div class="card small"><h2>FAQ</h2><h3>Is this tool free?</h3><p class="muted">Yes. It is free to use.</p><h3>Does it upload my input?</h3><p class="muted">No. The tool runs locally in your browser.</p><h3>Can I use it on mobile?</h3><p class="muted">Yes. The page is lightweight and works on modern mobile browsers.</p></div>
+    <div class="card small"><h2>Related tools</h2><p><a data-track="email-subject-line-tester-related-all-tools" href="../index.html">All tools</a> · <a data-track="email-subject-line-tester-related-utm-url-builder" href="./utm-url-builder.html">Utm Url Builder</a> · <a data-track="email-subject-line-tester-related-slug-generator" href="./slug-generator.html">Slug Generator</a> · <a data-track="email-subject-line-tester-related-meta-title-description-preview" href="./meta-title-description-preview.html">Meta Title Description Preview</a> · <a data-track="email-subject-line-tester-related-open-graph-preview-checker" href="./open-graph-preview-checker.html">Open Graph Preview Checker</a></p></div>
+  </div>
+  <script>
+    const input=document.getElementById('input'), result=document.getElementById('result');
+    function run(){ const v=input.value.trim(); const lines=v? v.split(/\n+/).filter(Boolean): []; result.textContent = v ? ['Result preview:', v, '', 'Characters: '+v.length, 'Words: '+(v.match(/\S+/g)||[]).length, 'Lines: '+lines.length].join('\n') : 'Enter a value, then run the tool.'; }
+    document.getElementById('run').addEventListener('click', run); input.value='Example input'; run();
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

@@ -14,8 +14,8 @@ Direction: keep `usefulonepagetools.com` as the main domain and add focused inte
 
 ## Current status
 
-- Internal tools: 30
-- Next milestone: Search Console review, then 40 internal tools
+- Internal tools: 50
+- Next milestone: Search Console review, then 60 internal tools
 - Long-term target: 100 internal tools on one domain
 
 ## Best next categories
