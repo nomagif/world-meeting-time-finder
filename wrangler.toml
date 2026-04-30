@@ -1,0 +1,6 @@
+name = "one-page-tools"
+pages_build_output_dir = "."
+
+[[r2_buckets]]
+binding = "ONE_PAGE_TOOLS_ANALYTICS_BUCKET"
+bucket_name = "one-page-tools-analytics"
