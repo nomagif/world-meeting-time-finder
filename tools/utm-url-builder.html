@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>UTM URL Builder | Create Campaign Tracking Links</title>
-  <meta name="description" content="Build a URL with UTM source, medium, campaign, term, and content parameters in one browser-only tool." />
+  <title>UTM URL Builder | Free Marketing Tool</title>
+  <meta name="description" content="Build a URL with UTM source, medium, campaign, term, and content parameters in one browser-only tool. Free, browser-based, and bui Free, browser-based, and built for one quick task." />
   <link rel="canonical" href="https://usefulonepagetools.com/tools/utm-url-builder" />
-  <meta property="og:title" content="UTM URL Builder | Create Campaign Tracking Links" />
-  <meta property="og:description" content="Build a URL with UTM source, medium, campaign, term, and content parameters in one browser-only tool." />
+  <meta property="og:title" content="UTM URL Builder" />
+  <meta property="og:description" content="Build a URL with UTM source, medium, campaign, term, and content parameters in one browser-only tool. Free, browser-based, and bui Free, browser-based, and built for one quick task." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://usefulonepagetools.com/tools/utm-url-builder" />
   <meta name="twitter:card" content="summary" />
@@ -21,7 +21,7 @@
             "@type": "WebApplication",
             "name": "UTM URL Builder",
             "url": "https://usefulonepagetools.com/tools/utm-url-builder",
-            "applicationCategory": "Marketing tools",
+            "applicationCategory": "Marketing Tools",
             "operatingSystem": "Any",
             "description": "Build a URL with UTM source, medium, campaign, term, and content parameters in one browser-only tool.",
             "isAccessibleForFree": true,
@@ -54,14 +54,14 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="nav"><a data-track="utm-url-builder-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="nav"><a data-track="utm-url-builder-nav-all-tools" href="../index.html">← All tools</a> · <a data-track="utm-url-builder-marketing-tools-category-breadcrumb" href="../marketing-tools/">Marketing Tools</a></div>
     <div class="hero">
-      <span class="badge">Marketing tools</span>
+      <span class="badge">Marketing Tools</span>
       <h1>UTM URL Builder</h1>
       <p class="muted">This UTM URL Builder helps you enter a landing page URL and campaign fields to create a clean UTM tracking link. Enter a landing page URL and campaign fields to create a clean UTM tracking link.</p>
     </div>
     <div class="card">
-      <label for="baseUrl">Landing page URL</label><input id="baseUrl" value="https://example.com/landing" /><div class="row two"><div><label for="source">utm_source</label><input id="source" value="newsletter" /></div><div><label for="medium">utm_medium</label><input id="medium" value="email" /></div></div><div class="row two"><div><label for="campaign">utm_campaign</label><input id="campaign" value="spring_launch" /></div><div><label for="term">utm_term</label><input id="term" placeholder="optional" /></div></div><label for="content">utm_content</label><input id="content" placeholder="optional" /><button id="buildBtn" data-track="utm-url-builder-build">Build UTM URL</button><div id="result" class="result"></div>
+      <label for="baseUrl">Landing page URL</label><input id="baseUrl" value="https://example.com/landing" /><div class="row two"><div><label for="source">utm_source</label><input id="source" value="newsletter" /></div><div class="card small"><h2>Quick answer</h2><p class="muted">Use this utm url builder to finish the task in one browser page. It is designed for fast checks, copyable results, and no account signup.</p></div><div><label for="medium">utm_medium</label><input id="medium" value="email" /></div></div><div class="row two"><div><label for="campaign">utm_campaign</label><input id="campaign" value="spring_launch" /></div><div><label for="term">utm_term</label><input id="term" placeholder="optional" /></div></div><label for="content">utm_content</label><input id="content" placeholder="optional" /><button id="buildBtn" data-track="utm-url-builder-build">Build UTM URL</button><div id="result" class="result"></div>
     </div>
     <div class="card small">
       <p>Enter a landing page URL and campaign fields to create a clean UTM tracking link.</p>
@@ -80,7 +80,7 @@
       <h3>Are fields required?</h3><p class="muted">A base URL is required. Source, medium, and campaign are strongly recommended.</p>
       <h3>Does it support existing query parameters?</h3><p class="muted">Yes. It appends or updates UTM parameters on the URL.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a data-track="utm-url-builder-related-all-tools" href="../index.html">All tools</a> · <a data-track="utm-url-builder-related-json" href="./json-formatter-validator">JSON Formatter</a> · <a data-track="utm-url-builder-related-percentage" href="./percentage-change-calculator">Percentage Change Calculator</a></p></div>
+    <div class="card small"><h2>Related marketing tools</h2><p><a data-track="utm-url-builder-related-email-subject-line-tester" href="./email-subject-line-tester.html">Email Subject Line Tester</a> · <a data-track="utm-url-builder-related-meta-title-description-preview" href="./meta-title-description-preview.html">Meta Title and Description Preview</a> · <a data-track="utm-url-builder-related-open-graph-preview-checker" href="./open-graph-preview-checker.html">Open Graph Preview Checker</a> · <a data-track="utm-url-builder-related-slug-generator" href="./slug-generator.html">Slug Generator</a> · <a data-track="utm-url-builder-related-all-tools" href="../index.html">All tools</a></p></div>
   </div>
   <script>
     const fields=['source','medium','campaign','term','content']; function build(){const result=document.getElementById('result'); try{const url=new URL(document.getElementById('baseUrl').value); fields.forEach(f=>{const v=document.getElementById(f).value.trim(); const key='utm_'+f; if(v) url.searchParams.set(key,v); else url.searchParams.delete(key);}); result.innerHTML='<p><code id="builtUrl"></code></p><button id="copyUrl" data-track="utm-url-builder-copy">Copy URL</button>'; document.getElementById('builtUrl').textContent=url.toString(); document.getElementById('copyUrl').addEventListener('click',()=>navigator.clipboard?.writeText(url.toString()));}catch(e){result.textContent='Enter a valid full URL, including https://';}} document.getElementById('buildBtn').addEventListener('click',build); build();

@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Work Hours Overlap Calculator | Compare Team Availability</title>
-  <meta name="description" content="Find overlapping work hours between selected cities using configurable local workday start and end times." />
+  <title>Work Hours Overlap Calculator | Free Time Tool</title>
+  <meta name="description" content="Find overlapping work hours between selected cities using configurable local workday start and end times. Free, browser-based, and Free, browser-based, and built for one quick task." />
   <link rel="canonical" href="https://usefulonepagetools.com/tools/work-hours-overlap-calculator" />
-  <meta property="og:title" content="Work Hours Overlap Calculator | Compare Team Availability" />
-  <meta property="og:description" content="Find overlapping work hours between selected cities using configurable local workday start and end times." />
+  <meta property="og:title" content="Work Hours Overlap Calculator" />
+  <meta property="og:description" content="Find overlapping work hours between selected cities using configurable local workday start and end times. Free, browser-based, and Free, browser-based, and built for one quick task." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://usefulonepagetools.com/tools/work-hours-overlap-calculator" />
   <meta name="twitter:card" content="summary" />
@@ -21,7 +21,7 @@
             "@type": "WebApplication",
             "name": "Work Hours Overlap Calculator",
             "url": "https://usefulonepagetools.com/tools/work-hours-overlap-calculator",
-            "applicationCategory": "Time tools",
+            "applicationCategory": "Time Tools",
             "operatingSystem": "Any",
             "description": "Find overlapping work hours between selected cities using configurable local workday start and end times.",
             "isAccessibleForFree": true,
@@ -83,20 +83,20 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="nav"><a data-track="work-hours-overlap-calculator-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="nav"><a data-track="work-hours-overlap-calculator-nav-all-tools" href="../index.html">← All tools</a> · <a data-track="work-hours-overlap-calculator-time-tools-category-breadcrumb" href="../time-tools/">Time Tools</a></div>
     <div class="hero">
-      <span class="badge">Time tools</span>
+      <span class="badge">Time Tools</span>
       <h1>Work Hours Overlap Calculator</h1>
       <p class="muted">This Work Hours Overlap Calculator helps you select cities and a workday window to find UTC hours where everyone is inside local work hours. Select cities and a workday window to find UTC hours where everyone is inside local work hours.</p>
     </div>
     <div class="card">
-      <div class="row two"><div><label for="date">Date</label><input id="date" type="date" /></div><div><label for="cities">Cities</label><select id="cities" multiple size="6"></select></div></div><div class="row two"><div><label for="startHour">Workday start</label><input id="startHour" type="number" min="0" max="23" value="9" /></div><div><label for="endHour">Workday end</label><input id="endHour" type="number" min="1" max="24" value="17" /></div></div><button id="calcBtn" data-track="work-hours-overlap-calculator-calculate">Find overlap</button><div id="result" class="result"></div>
+      <div class="row two"><div><label for="date">Date</label><input id="date" type="date" /></div><div class="card small"><h2>Quick answer</h2><p class="muted">Use this work hours overlap calculator to finish the task in one browser page. It is designed for fast checks, copyable results, and no account signup.</p></div><div><label for="cities">Cities</label><select id="cities" multiple size="6"></select></div></div><div class="row two"><div><label for="startHour">Workday start</label><input id="startHour" type="number" min="0" max="23" value="9" /></div><div><label for="endHour">Workday end</label><input id="endHour" type="number" min="1" max="24" value="17" /></div></div><button id="calcBtn" data-track="work-hours-overlap-calculator-calculate">Find overlap</button><div id="result" class="result"></div>
     </div>
     <div class="card small"><h2>How to use this tool</h2><p class="muted">Select cities and a workday window to find UTC hours where everyone is inside local work hours.</p></div>
     <div class="card small"><h2>When this tool is useful</h2><p class="muted">Use this for remote teams, agencies, recruiters, and client calls where you need a realistic shared availability window.</p></div>
     <div class="card small"><h2>Example use case</h2><p class="muted">Select New York, London, and Tokyo with 09:00–17:00 work hours to see whether a same-day overlap exists.</p></div>
     <div class="card small"><h2>FAQ</h2><h3>Does this use local daylight saving rules?</h3><p class="muted">Yes. It uses the browser time zone database for the chosen date.</p><h3>Can I change work hours?</h3><p class="muted">Yes. Choose the local start and end hour used for every selected city.</p><h3>What if there is no overlap?</h3><p class="muted">Try broader hours, fewer cities, or rotating meeting times.</p></div>
-    <div class="card small"><h2>Related tools</h2><p><a data-track="work-hours-overlap-calculator-related-us-europe-asia-time-overlap-tool" href="./us-europe-asia-time-overlap-tool">US, Europe &amp; Asia Time Overlap Tool</a> · <a data-track="work-hours-overlap-calculator-related-time-zone-meeting-planner-by-cities" href="./time-zone-meeting-planner-by-cities">Time Zone Meeting Planner by Cities</a> · <a data-track="work-hours-overlap-calculator-related-business-days-calculator" href="./business-days-calculator">Business Days Calculator</a> · <a data-track="work-hours-overlap-calculator-related-all-tools" href="../index.html">All tools</a></p></div>
+    <div class="card small"><h2>Related time tools</h2><p><a data-track="work-hours-overlap-calculator-related-add-days-to-date-calculator" href="./add-days-to-date-calculator.html">Add Days to Date Calculator</a> · <a data-track="work-hours-overlap-calculator-related-age-calculator" href="./age-calculator.html">Age Calculator</a> · <a data-track="work-hours-overlap-calculator-related-business-days-calculator" href="./business-days-calculator.html">Business Days Calculator</a> · <a data-track="work-hours-overlap-calculator-related-countdown-timer" href="./countdown-timer.html">Countdown Timer</a> · <a data-track="work-hours-overlap-calculator-related-all-tools" href="../index.html">All tools</a></p></div>
   </div>
   <script>
     const cityData=[['Tokyo','Asia/Tokyo'],['New York','America/New_York'],['Los Angeles','America/Los_Angeles'],['London','Europe/London'],['Berlin','Europe/Berlin'],['Singapore','Asia/Singapore'],['Sydney','Australia/Sydney'],['Dubai','Asia/Dubai'],['Mumbai','Asia/Kolkata']];

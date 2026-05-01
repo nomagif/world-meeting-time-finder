@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Compound Interest Calculator | Quick Future Value Estimate</title>
-  <meta name="description" content="Estimate future value from principal, annual return, years, and monthly contribution in one simple page." />
+  <title>Compound Interest Calculator | Free Money Tool</title>
+  <meta name="description" content="Estimate future value from principal, annual return, years, and monthly contribution in one simple page. Free, browser-based, and  Free, browser-based, and built for one quick task." />
   <link rel="canonical" href="https://usefulonepagetools.com/tools/compound-interest-calculator" />
-  <meta property="og:title" content="Compound Interest Calculator | Quick Future Value Estimate" />
-  <meta property="og:description" content="Estimate future value from principal, annual return, years, and monthly contribution in one simple page." />
+  <meta property="og:title" content="Compound Interest Calculator" />
+  <meta property="og:description" content="Estimate future value from principal, annual return, years, and monthly contribution in one simple page. Free, browser-based, and  Free, browser-based, and built for one quick task." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://usefulonepagetools.com/tools/compound-interest-calculator" />
   <meta name="twitter:card" content="summary" />
@@ -21,7 +21,7 @@
             "@type": "WebApplication",
             "name": "Compound Interest Calculator",
             "url": "https://usefulonepagetools.com/tools/compound-interest-calculator",
-            "applicationCategory": "Money calculators",
+            "applicationCategory": "Money Calculators",
             "operatingSystem": "Any",
             "description": "Estimate future value from principal, annual return, years, and monthly contribution in one simple page.",
             "isAccessibleForFree": true,
@@ -54,14 +54,14 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="nav"><a data-track="compound-interest-calculator-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="nav"><a data-track="compound-interest-calculator-nav-all-tools" href="../index.html">← All tools</a> · <a data-track="compound-interest-calculator-money-calculators-category-breadcrumb" href="../money-calculators/">Money Calculators</a></div>
     <div class="hero">
-      <span class="badge">Money calculators</span>
+      <span class="badge">Money Calculators</span>
       <h1>Compound Interest Calculator</h1>
       <p class="muted">This Compound Interest Calculator helps you estimate how an amount could grow over time with compounding and optional monthly contributions. Estimate how an amount could grow over time with compounding and optional monthly contributions.</p>
     </div>
     <div class="card">
-      <div class="row two"><div><label for="principal">Starting amount</label><input id="principal" type="number" step="any" value="1000" /></div><div><label for="monthly">Monthly contribution</label><input id="monthly" type="number" step="any" value="100" /></div></div><div class="row two"><div><label for="rate">Annual return (%)</label><input id="rate" type="number" step="any" value="5" /></div><div><label for="years">Years</label><input id="years" type="number" step="any" value="10" /></div></div><button id="calcBtn" data-track="compound-interest-calculator-calculate">Calculate estimate</button><div id="result" class="result"></div>
+      <div class="row two"><div><label for="principal">Starting amount</label><input id="principal" type="number" step="any" value="1000" /></div><div class="card small"><h2>Quick answer</h2><p class="muted">Use this compound interest calculator to finish the task in one browser page. It is designed for fast checks, copyable results, and no account signup.</p></div><div><label for="monthly">Monthly contribution</label><input id="monthly" type="number" step="any" value="100" /></div></div><div class="row two"><div><label for="rate">Annual return (%)</label><input id="rate" type="number" step="any" value="5" /></div><div><label for="years">Years</label><input id="years" type="number" step="any" value="10" /></div></div><button id="calcBtn" data-track="compound-interest-calculator-calculate">Calculate estimate</button><div id="result" class="result"></div>
     </div>
     <div class="card small">
       <p>Estimate how an amount could grow over time with compounding and optional monthly contributions.</p>
@@ -80,7 +80,7 @@
       <h3>How often does it compound?</h3><p class="muted">The estimate compounds monthly.</p>
       <h3>Are taxes or fees included?</h3><p class="muted">No. Add your own buffer for taxes, fees, and risk.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a data-track="compound-interest-calculator-related-all-tools" href="../index.html">All tools</a> · <a data-track="compound-interest-calculator-related-json" href="./json-formatter-validator">JSON Formatter</a> · <a data-track="compound-interest-calculator-related-percentage" href="./percentage-change-calculator">Percentage Change Calculator</a></p></div>
+    <div class="card small"><h2>Related money calculators</h2><p><a data-track="compound-interest-calculator-related-discount-calculator" href="./discount-calculator.html">Discount Calculator</a> · <a data-track="compound-interest-calculator-related-invoice-total-calculator" href="./invoice-total-calculator.html">Invoice Total Calculator</a> · <a data-track="compound-interest-calculator-related-loan-payment-calculator" href="./loan-payment-calculator.html">Loan Payment Calculator</a> · <a data-track="compound-interest-calculator-related-percentage-change-calculator" href="./percentage-change-calculator.html">Percentage Change Calculator</a> · <a data-track="compound-interest-calculator-related-all-tools" href="../index.html">All tools</a></p></div>
   </div>
   <script>
     const ids=['principal','monthly','rate','years']; const result=document.getElementById('result'); function money(n){return n.toLocaleString(undefined,{style:'currency',currency:'USD',maximumFractionDigits:2});} function calc(){const [p,m,r,y]=ids.map(id=>Number(document.getElementById(id).value)); if([p,m,r,y].some(v=>!Number.isFinite(v))||y<0){result.textContent='Enter valid numbers.'; return;} const months=Math.round(y*12), mr=r/100/12; let total=p; for(let i=0;i<months;i++){total=total*(1+mr)+m;} const contributed=p+m*months; result.innerHTML='<table><tbody><tr><th>Estimated future value</th><td>'+money(total)+'</td></tr><tr><th>Total contributed</th><td>'+money(contributed)+'</td></tr><tr><th>Estimated growth</th><td>'+money(total-contributed)+'</td></tr></tbody></table>'; } document.getElementById('calcBtn').addEventListener('click',calc); calc();

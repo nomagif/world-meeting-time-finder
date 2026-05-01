@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JSON Formatter and Validator | Format JSON Locally</title>
-  <meta name="description" content="Paste JSON to validate and pretty-print it locally in your browser without uploading the content." />
+  <title>JSON Formatter &amp; Validator | Free Web Tool</title>
+  <meta name="description" content="Paste JSON to validate and pretty-print it locally in your browser without uploading the content. Free, browser-based, and built f Free, browser-based, and built for one quick task." />
   <link rel="canonical" href="https://usefulonepagetools.com/tools/json-formatter-validator" />
-  <meta property="og:title" content="JSON Formatter and Validator | Format JSON Locally" />
-  <meta property="og:description" content="Paste JSON to validate and pretty-print it locally in your browser without uploading the content." />
+  <meta property="og:title" content="JSON Formatter &amp; Validator" />
+  <meta property="og:description" content="Paste JSON to validate and pretty-print it locally in your browser without uploading the content. Free, browser-based, and built f Free, browser-based, and built for one quick task." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://usefulonepagetools.com/tools/json-formatter-validator" />
   <meta name="twitter:card" content="summary" />
@@ -21,7 +21,7 @@
             "@type": "WebApplication",
             "name": "JSON Formatter & Validator",
             "url": "https://usefulonepagetools.com/tools/json-formatter-validator",
-            "applicationCategory": "Web tools",
+            "applicationCategory": "Web Tools",
             "operatingSystem": "Any",
             "description": "Paste JSON to validate and pretty-print it locally in your browser without uploading the content.",
             "isAccessibleForFree": true,
@@ -54,14 +54,14 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="nav"><a data-track="json-formatter-validator-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="nav"><a data-track="json-formatter-validator-nav-all-tools" href="../index.html">← All tools</a> · <a data-track="json-formatter-validator-web-tools-category-breadcrumb" href="../web-tools/">Web Tools</a></div>
     <div class="hero">
-      <span class="badge">Web tools</span>
+      <span class="badge">Web Tools</span>
       <h1>JSON Formatter &amp; Validator</h1>
       <p class="muted">This JSON Formatter &amp;amp; Validator helps you paste JSON to validate it and format it with readable indentation in your browser. Paste JSON to validate it and format it with readable indentation in your browser.</p>
     </div>
     <div class="card">
-      <label for="jsonInput">JSON input</label><textarea id="jsonInput" rows="9" placeholder='{"hello":"world"}'></textarea><div class="row two"><button id="formatBtn" data-track="json-formatter-validator-format">Format JSON</button><button id="minifyBtn" data-track="json-formatter-validator-minify">Minify JSON</button></div><pre id="result" class="result"></pre>
+      <label for="jsonInput">JSON input</label><textarea id="jsonInput" rows="9" placeholder='{"hello":"world"}'></textarea><div class="row two"><button id="formatBtn" data-track="json-formatter-validator-format">Format JSON</button><button id="minifyBtn" data-track="json-formatter-validator-minify">Minify JSON</button></div><div class="card small"><h2>Quick answer</h2><p class="muted">Use this json formatter &amp; validator to finish the task in one browser page. It is designed for fast checks, copyable results, and no account signup.</p></div><pre id="result" class="result"></pre>
     </div>
     <div class="card small">
       <p>Paste JSON to validate it and format it with readable indentation in your browser.</p>
@@ -80,7 +80,7 @@
       <h3>Can it fix invalid JSON?</h3><p class="muted">No. It reports the parse error so you can fix the source.</p>
       <h3>Does it preserve key order?</h3><p class="muted">JavaScript parsing generally preserves object insertion order for normal JSON objects.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a data-track="json-formatter-validator-related-all-tools" href="../index.html">All tools</a> · <a data-track="json-formatter-validator-related-json" href="./json-formatter-validator">JSON Formatter</a> · <a data-track="json-formatter-validator-related-percentage" href="./percentage-change-calculator">Percentage Change Calculator</a></p></div>
+    <div class="card small"><h2>Related web tools</h2><p><a data-track="json-formatter-validator-related-base64-encoder-decoder" href="./base64-encoder-decoder.html">Base64 Encoder Decoder</a> · <a data-track="json-formatter-validator-related-cron-expression-explainer" href="./cron-expression-explainer.html">Cron Expression Explainer</a> · <a data-track="json-formatter-validator-related-password-generator" href="./password-generator.html">Password Generator</a> · <a data-track="json-formatter-validator-related-regex-tester" href="./regex-tester.html">Regex Tester</a> · <a data-track="json-formatter-validator-related-all-tools" href="../index.html">All tools</a></p></div>
   </div>
   <script>
     const input=document.getElementById('jsonInput'), result=document.getElementById('result'); function run(space){try{const obj=JSON.parse(input.value); result.textContent=JSON.stringify(obj,null,space); result.style.color='';}catch(e){result.textContent='Invalid JSON: '+e.message; result.style.color='#fca5a5';}} document.getElementById('formatBtn').addEventListener('click',()=>run(2)); document.getElementById('minifyBtn').addEventListener('click',()=>run(0)); input.value='{"status":"ok","items":[{"name":"Example","count":3}]}'; run(2);

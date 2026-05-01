@@ -41,6 +41,12 @@
 
   window.opTrack = send;
 
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () { send('page_view'); }, { once: true });
+  } else {
+    send('page_view');
+  }
+
   document.addEventListener('click', function (event) {
     const target = event.target.closest('[data-track]');
     if (!target) return;

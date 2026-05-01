@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sales Tax Calculator | Add or Remove Tax Quickly</title>
-  <meta name="description" content="Add sales tax to a price or remove included tax from a total with a lightweight browser calculator." />
+  <title>Sales Tax Calculator | Free Money Tool</title>
+  <meta name="description" content="Add sales tax to a price or remove included tax from a total with a lightweight browser calculator. Free, browser-based, and built Free, browser-based, and built for one quick task." />
   <link rel="canonical" href="https://usefulonepagetools.com/tools/sales-tax-calculator" />
-  <meta property="og:title" content="Sales Tax Calculator | Add or Remove Tax Quickly" />
-  <meta property="og:description" content="Add sales tax to a price or remove included tax from a total with a lightweight browser calculator." />
+  <meta property="og:title" content="Sales Tax Calculator" />
+  <meta property="og:description" content="Add sales tax to a price or remove included tax from a total with a lightweight browser calculator. Free, browser-based, and built Free, browser-based, and built for one quick task." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://usefulonepagetools.com/tools/sales-tax-calculator" />
   <meta name="twitter:card" content="summary" />
@@ -21,7 +21,7 @@
             "@type": "WebApplication",
             "name": "Sales Tax Calculator",
             "url": "https://usefulonepagetools.com/tools/sales-tax-calculator",
-            "applicationCategory": "Money calculators",
+            "applicationCategory": "Money Calculators",
             "operatingSystem": "Any",
             "description": "Add sales tax to a price or remove included tax from a total with a lightweight browser calculator.",
             "isAccessibleForFree": true,
@@ -54,14 +54,14 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="nav"><a data-track="sales-tax-calculator-nav-all-tools" href="../index.html">← All tools</a></div>
+    <div class="nav"><a data-track="sales-tax-calculator-nav-all-tools" href="../index.html">← All tools</a> · <a data-track="sales-tax-calculator-money-calculators-category-breadcrumb" href="../money-calculators/">Money Calculators</a></div>
     <div class="hero">
-      <span class="badge">Money calculators</span>
+      <span class="badge">Money Calculators</span>
       <h1>Sales Tax Calculator</h1>
       <p class="muted">This Sales Tax Calculator helps you calculate tax-inclusive totals or reverse-calculate the pre-tax amount from a total. Calculate tax-inclusive totals or reverse-calculate the pre-tax amount from a total.</p>
     </div>
     <div class="card">
-      <div class="row two"><div><label for="price">Price or total</label><input id="price" type="number" step="any" value="80" /></div><div><label for="rate">Tax rate (%)</label><input id="rate" type="number" step="any" value="8.25" /></div></div><div class="row two"><div><label for="mode">Mode</label><select id="mode"><option value="add">Add tax</option><option value="remove">Remove included tax</option></select></div><div><label>&nbsp;</label><button id="calcBtn" data-track="sales-tax-calculator-calculate">Calculate tax</button></div></div><div id="result" class="result"></div>
+      <div class="row two"><div><label for="price">Price or total</label><input id="price" type="number" step="any" value="80" /></div><div class="card small"><h2>Quick answer</h2><p class="muted">Use this sales tax calculator to finish the task in one browser page. It is designed for fast checks, copyable results, and no account signup.</p></div><div><label for="rate">Tax rate (%)</label><input id="rate" type="number" step="any" value="8.25" /></div></div><div class="row two"><div><label for="mode">Mode</label><select id="mode"><option value="add">Add tax</option><option value="remove">Remove included tax</option></select></div><div><label>&nbsp;</label><button id="calcBtn" data-track="sales-tax-calculator-calculate">Calculate tax</button></div></div><div id="result" class="result"></div>
     </div>
     <div class="card small">
       <p>Calculate tax-inclusive totals or reverse-calculate the pre-tax amount from a total.</p>
@@ -80,7 +80,7 @@
       <h3>Can it remove tax from a tax-included price?</h3><p class="muted">Yes. Choose remove tax to estimate the pre-tax amount.</p>
       <h3>Can I use VAT?</h3><p class="muted">Yes. The same math works for VAT-style percentages.</p>
     </div>
-    <div class="card small"><h2>Related tools</h2><p><a data-track="sales-tax-calculator-related-all-tools" href="../index.html">All tools</a> · <a data-track="sales-tax-calculator-related-json" href="./json-formatter-validator">JSON Formatter</a> · <a data-track="sales-tax-calculator-related-percentage" href="./percentage-change-calculator">Percentage Change Calculator</a></p></div>
+    <div class="card small"><h2>Related money calculators</h2><p><a data-track="sales-tax-calculator-related-compound-interest-calculator" href="./compound-interest-calculator.html">Compound Interest Calculator</a> · <a data-track="sales-tax-calculator-related-discount-calculator" href="./discount-calculator.html">Discount Calculator</a> · <a data-track="sales-tax-calculator-related-invoice-total-calculator" href="./invoice-total-calculator.html">Invoice Total Calculator</a> · <a data-track="sales-tax-calculator-related-loan-payment-calculator" href="./loan-payment-calculator.html">Loan Payment Calculator</a> · <a data-track="sales-tax-calculator-related-all-tools" href="../index.html">All tools</a></p></div>
   </div>
   <script>
     const result=document.getElementById('result'); function money(n){return n.toLocaleString(undefined,{style:'currency',currency:'USD',maximumFractionDigits:2});} function calc(){const price=Number(document.getElementById('price').value), rate=Number(document.getElementById('rate').value)/100, mode=document.getElementById('mode').value; if(!Number.isFinite(price)||!Number.isFinite(rate)){result.textContent='Enter valid price and tax rate.'; return;} let base,tax,total; if(mode==='remove'){base=price/(1+rate); tax=price-base; total=price;} else {base=price; tax=price*rate; total=base+tax;} result.innerHTML='<table><tbody><tr><th>Pre-tax amount</th><td>'+money(base)+'</td></tr><tr><th>Tax amount</th><td>'+money(tax)+'</td></tr><tr><th>Total</th><td>'+money(total)+'</td></tr></tbody></table>'; } document.getElementById('calcBtn').addEventListener('click',calc); calc();
