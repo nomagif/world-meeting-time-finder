@@ -3,140 +3,75 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Best World Meeting Time Finder | Free Time Tool</title>
-  <meta name="description" content="Find the best meeting time across Tokyo, New York, London, Berlin, Singapore, and Sydney with a fast world meeting time finder. Fr Free, browser-based, and built for one quick task." />
+  <title>Best World Meeting Time Finder | Useful One-Page Tools</title>
+  <meta name="description" content="Find the best meeting time across Tokyo, New York, London, Europe, Singapore, and Sydney with fit scores, local times, and related time-zone tools." />
   <link rel="canonical" href="https://usefulonepagetools.com/tools/best-world-meeting-time-finder" />
   <meta property="og:title" content="Best World Meeting Time Finder" />
-  <meta property="og:description" content="Find the best meeting time across Tokyo, New York, London, Berlin, Singapore, and Sydney with a fast world meeting time finder. Fr Free, browser-based, and built for one quick task." />
+  <meta property="og:description" content="Find the best meeting time across Tokyo, New York, London, Europe, Singapore, and Sydney with fit scores, local times, and related time-zone tools." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://usefulonepagetools.com/tools/best-world-meeting-time-finder" />
+  <meta name="twitter:card" content="summary" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="../assets/styles.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "name": "World Meeting Time Finder",
-        "url": "https://usefulonepagetools.com/tools/best-world-meeting-time-finder",
-        "applicationCategory": "Time zone meeting planner",
-        "operatingSystem": "Any",
-        "description": "Compare time zones for remote teams and find candidate meeting times.",
-        "isAccessibleForFree": true,
-        "publisher": {
-          "@type": "Organization",
-          "name": "Useful One-Page Tools",
-          "url": "https://usefulonepagetools.com/"
-        }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {"@type": "ListItem", "position": 1, "name": "All tools", "item": "https://usefulonepagetools.com/"},
-          {"@type": "ListItem", "position": 2, "name": "World Meeting Time Finder", "item": "https://usefulonepagetools.com/tools/best-world-meeting-time-finder"}
-        ]
-      }
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Best World Meeting Time Finder","url":"https://usefulonepagetools.com/tools/best-world-meeting-time-finder","applicationCategory":"Time Tools","operatingSystem":"Any","description":"Find the best meeting time across Tokyo, New York, London, Europe, Singapore, and Sydney with fit scores, local times, and related time-zone tools.","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Useful One-Page Tools","url":"https://usefulonepagetools.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"All tools","item":"https://usefulonepagetools.com/"},{"@type":"ListItem","position":2,"name":"Best World Meeting Time Finder","item":"https://usefulonepagetools.com/tools/best-world-meeting-time-finder"}]}]}</script>
 </head>
 <body>
   <div class="wrap">
     <div class="nav"><a data-track="best-world-meeting-time-finder-nav-all-tools" href="../index.html">← All tools</a> · <a data-track="best-world-meeting-time-finder-time-tools-category-breadcrumb" href="../time-tools/">Time Tools</a></div>
-    <div class="hero">
-      <h1>Best World Meeting Time Finder</h1>
-      <p class="muted">This Best World Meeting Time Finder helps you pick a reference city and date. Instantly see matching times across major work hubs for remote meetings. Pick a reference city and date. Instantly see matching times across major work hubs for remote meetings.</p>
-    </div>
+    <div class="hero"><span class="badge">Time Tools</span><h1>Best World Meeting Time Finder</h1><p class="muted">Find the best meeting time across Tokyo, New York, London, Europe, Singapore, and Sydney with fit scores, local times, and related time-zone tools.</p></div>
     <div class="card">
-      <div class="row two">
-        <div>
-          <label for="baseCity">Reference city</label>
-          <select id="baseCity"></select>
-        </div><div class="card small"><h2>Quick answer</h2><p class="muted">Use this best world meeting time finder to finish the task in one browser page. It is designed for fast checks, copyable results, and no account signup.</p></div>
-        <div>
-          <label for="meetingDate">Date</label>
-          <input id="meetingDate" type="date" />
-        </div>
-      </div>
-      <div class="row two">
-        <div>
-          <label for="meetingTime">Time</label>
-          <input id="meetingTime" type="time" value="09:00" />
-        </div>
-        <div>
-          <label>&nbsp;</label>
-          <button id="showTimes" data-track="best-world-meeting-time-finder-showTimes">Show times</button>
-        </div>
-      </div>
-      <div id="results" class="result"></div>
+      <div class="row two"><div><label for="date">Meeting date</label><input id="date" type="date" /></div><div><label for="cities">Cities to compare</label><select id="cities" multiple size="8"><option selected>Tokyo</option><option selected>New York</option><option selected>London</option><option>Berlin</option><option>Singapore</option><option>Sydney</option><option>Los Angeles</option><option>Dubai</option></select></div></div>
+      <button id="run" data-track="best-world-meeting-time-finder-find-best-times">Find best meeting times</button>
+      <div id="answer" class="result"></div>
     </div>
-    <div class="card small">
-      <p>This page helps remote teams find workable cross-time-zone meeting times fast. No calendar sync, no setup, no account.</p>
-    </div>
-    <div class="card small">
-      <h2>When this tool is useful</h2>
-      <p class="muted">Use it when a team is spread across major cities and you want a quick first-pass answer before creating calendar invites. It is especially handy for recurring check-ins, interviews, and client calls across the US, Europe, and Asia.</p>
-    </div>
-    <div class="card small">
-      <h2>Example use case</h2>
-      <p class="muted">A founder in Tokyo wants to meet a customer in New York and a designer in London. Set Tokyo as the reference city, choose a candidate time such as 09:00 or 21:00, and check whether the other cities fall into a reasonable working or early-evening window before sending the invite.</p>
-    </div>
-    <div class="card small">
-      <h2>FAQ</h2>
-      <h3>How is this different from a calendar app?</h3>
-      <p class="muted">This is faster for a rough first pass. You pick one city, date, and time, then immediately see the matching local times across major hubs.</p>
-      <h3>Does it handle daylight saving time?</h3>
-      <p class="muted">Yes. It uses the browser time zone database through <code>Intl.DateTimeFormat</code>, so DST shifts are reflected automatically.</p>
-      <h3>Who is this most useful for?</h3>
-      <p class="muted">Remote teams, founders, recruiters, agencies, and anyone scheduling across the US, Europe, and Asia.</p>
-      <h3>Should I still confirm the final meeting time?</h3>
-      <p class="muted">Yes. This page is meant to narrow down candidate hours quickly. You should still confirm the final invite in your calendar system before sending it.</p>
-    </div>
-    <div class="card small"><h2>Related time tools</h2><p><a data-track="best-world-meeting-time-finder-related-ai-tools-pricing-comparison-table" href="./ai-tools-pricing-comparison-table.html">AI Tools Pricing Comparison Table</a> · <a data-track="best-world-meeting-time-finder-related-us-europe-asia-time-overlap-tool" href="./us-europe-asia-time-overlap-tool.html">US Europe Asia Time Overlap Tool</a> · <a data-track="best-world-meeting-time-finder-related-website-response-time-checker-tool" href="./website-response-time-checker-tool.html">Website Response Time Checker Tool</a> · <a data-track="best-world-meeting-time-finder-related-add-days-to-date-calculator" href="./add-days-to-date-calculator.html">Add Days to Date Calculator</a> · <a data-track="best-world-meeting-time-finder-related-all-tools" href="../index.html">All tools</a></p></div>
+    <div class="card small"><h2>Quick answer</h2><p class="muted">The best world meeting time is usually the highest-scoring slot where most cities land in normal work hours, early morning, or early evening. This page ranks candidate hours automatically so you can choose a practical time before sending a calendar invite.</p></div>
+    <div class="card small"><h2>Popular meeting time searches</h2><ul><li>Best time for a Tokyo and New York meeting</li><li>Best time for London and New York calls</li><li>Best time for US, Europe, and Asia remote teams</li><li>Work-hour overlap across global cities</li></ul></div>
+    <div class="card small"><h2>FAQ</h2><h3>What counts as a good meeting time?</h3><p class="muted">Normal work hours score highest. Early morning and evening slots are marked as possible but less ideal.</p><h3>Does this handle daylight saving time?</h3><p class="muted">Yes. Local times use the browser time zone database for the selected date.</p><h3>Should I still confirm in my calendar?</h3><p class="muted">Yes. Use this as a fast planning layer, then confirm the final invite in your calendar app.</p></div>
+    <div class="card small"><h2>Related time tools</h2><p><a data-track="best-world-meeting-time-finder-related-remote-team-meeting-planner" href="./remote-team-meeting-planner">Remote Team Meeting Planner</a> · <a data-track="best-world-meeting-time-finder-related-tokyo-new-york-meeting-time" href="./tokyo-new-york-meeting-time">Tokyo New York Meeting Time</a> · <a data-track="best-world-meeting-time-finder-related-london-new-york-meeting-time" href="./london-new-york-meeting-time">London New York Meeting Time</a> · <a data-track="best-world-meeting-time-finder-related-pst-est-cet-time-converter" href="./pst-est-cet-time-converter">Pst Est Cet Time Converter</a> · <a data-track="best-world-meeting-time-finder-related-work-hours-overlap-by-country" href="./work-hours-overlap-by-country">Work Hours Overlap by Country</a> · <a data-track="best-world-meeting-time-finder-related-us-europe-asia-time-overlap-tool" href="./us-europe-asia-time-overlap-tool">Us Europe Asia Time Overlap Tool</a> · <a data-track="best-world-meeting-time-finder-related-all-tools" href="../index.html">All tools</a></p></div>
   </div>
   <script>
-    const cities = [
-      ['Tokyo', 'Asia/Tokyo'], ['New York', 'America/New_York'], ['London', 'Europe/London'],
-      ['Berlin', 'Europe/Berlin'], ['Singapore', 'Asia/Singapore'], ['Sydney', 'Australia/Sydney']
-    ];
-    const baseCity = document.getElementById('baseCity');
-    const meetingDate = document.getElementById('meetingDate');
-    const meetingTime = document.getElementById('meetingTime');
-    const results = document.getElementById('results');
-    cities.forEach(([label, value]) => {
-      const opt = document.createElement('option');
-      opt.value = value; opt.textContent = label; baseCity.appendChild(opt);
-    });
-    baseCity.value = 'Asia/Tokyo';
-    meetingDate.value = new Date().toISOString().slice(0, 10);
 
-    function getTimeZoneOffset(date, timeZone) {
-      const dtf = new Intl.DateTimeFormat('en-US', {
-        timeZone, year: 'numeric', month: '2-digit', day: '2-digit',
-        hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
-      });
-      const parts = Object.fromEntries(dtf.formatToParts(date).filter(p => p.type !== 'literal').map(p => [p.type, p.value]));
-      const asUTC = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
-      return (asUTC - date.getTime()) / 60000;
-    }
-    function zonedDateTimeToUtc(dateStr, timeStr, timeZone) {
-      const [y,m,d] = dateStr.split('-').map(Number);
-      const [hh,mm] = timeStr.split(':').map(Number);
-      const guess = new Date(Date.UTC(y, m - 1, d, hh, mm));
-      const offset = getTimeZoneOffset(guess, timeZone);
-      return new Date(Date.UTC(y, m - 1, d, hh, mm) - offset * 60000);
-    }
-    function formatInZone(date, timeZone) {
-      return new Intl.DateTimeFormat('en-US', {
-        timeZone, weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false
-      }).format(date);
-    }
-    document.getElementById('showTimes').addEventListener('click', () => {
-      const utcDate = zonedDateTimeToUtc(meetingDate.value, meetingTime.value, baseCity.value);
-      results.innerHTML = '<table><thead><tr><th>City</th><th>Local time</th></tr></thead><tbody>' + cities.map(([label, zone]) => `<tr><td>${label}</td><td>${formatInZone(utcDate, zone)}</td></tr>`).join('') + '</tbody></table>';
-    });
-    document.getElementById('showTimes').click();
+const zoneMap = {
+  "Tokyo": "Asia/Tokyo",
+  "New York": "America/New_York",
+  "London": "Europe/London",
+  "Berlin": "Europe/Berlin",
+  "Singapore": "Asia/Singapore",
+  "Sydney": "Australia/Sydney",
+  "Los Angeles": "America/Los_Angeles",
+  "San Francisco": "America/Los_Angeles",
+  "Chicago": "America/Chicago",
+  "Paris": "Europe/Paris",
+  "Dubai": "Asia/Dubai",
+  "Seoul": "Asia/Seoul"
+};
+function getTimeZoneOffset(date, timeZone) {
+  const dtf = new Intl.DateTimeFormat('en-US', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  const parts = Object.fromEntries(dtf.formatToParts(date).filter(p => p.type !== 'literal').map(p => [p.type, p.value]));
+  const asUTC = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
+  return (asUTC - date.getTime()) / 60000;
+}
+function zonedDateTimeToUtc(dateStr, timeStr, timeZone) {
+  const [y,m,d] = dateStr.split('-').map(Number);
+  const [hh,mm] = timeStr.split(':').map(Number);
+  const guess = new Date(Date.UTC(y, m - 1, d, hh, mm));
+  const offset = getTimeZoneOffset(guess, timeZone);
+  return new Date(Date.UTC(y, m - 1, d, hh, mm) - offset * 60000);
+}
+function formatInZone(date, timeZone) {
+  return new Intl.DateTimeFormat('en-US', { timeZone, weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' }).format(date);
+}
+function hourInZone(date, timeZone) {
+  return Number(new Intl.DateTimeFormat('en-US', { timeZone, hour: '2-digit', hour12: false }).format(date).replace('24','0'));
+}
+function scoreHour(h) { if (h >= 9 && h < 17) return 3; if (h >= 7 && h < 9) return 2; if (h >= 17 && h < 21) return 2; if (h >= 6 && h < 22) return 1; return 0; }
+function labelHour(h) { if (h >= 9 && h < 17) return 'work hours'; if (h >= 7 && h < 9) return 'early'; if (h >= 17 && h < 21) return 'evening'; if (h >= 6 && h < 22) return 'possible'; return 'bad'; }
+function todayISO(){ return new Date().toISOString().slice(0,10); }
+
+const select=document.getElementById('cities'), date=document.getElementById('date'), answer=document.getElementById('answer'); date.value=todayISO();
+function selected(){return Array.from(select.selectedOptions).map(o=>o.value)}
+function render(){const cities=selected(); const candidates=[]; for(let h=0;h<24;h++){const utc=zonedDateTimeToUtc(date.value,String(h).padStart(2,'0')+':00','UTC'); const details=cities.map(c=>{const hour=hourInZone(utc,zoneMap[c]); return {city:c,time:formatInZone(utc,zoneMap[c]),fit:labelHour(hour),score:scoreHour(hour)}}); candidates.push({score:details.reduce((s,d)=>s+d.score,0),details});} candidates.sort((a,b)=>b.score-a.score); const top=candidates.slice(0,6); answer.innerHTML='<p><strong>Best candidate:</strong> score '+top[0].score+' / '+(cities.length*3)+'</p>'+top.map((c,i)=>'<h3>#'+(i+1)+' — score '+c.score+'</h3><table><thead><tr><th>City</th><th>Local time</th><th>Fit</th></tr></thead><tbody>'+c.details.map(d=>'<tr><td>'+d.city+'</td><td>'+d.time+'</td><td>'+d.fit+'</td></tr>').join('')+'</tbody></table>').join(''); if(window.opTrack) window.opTrack('tool_run',{id:'best-world-meeting-time-finder-find-best-times', cities:cities, top_score:top[0]?.score});}
+document.getElementById('run').addEventListener('click', render); render();
   </script>
   <script src="../assets/analytics.js" defer></script>
 </body>

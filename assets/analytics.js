@@ -50,8 +50,12 @@
   document.addEventListener('click', function (event) {
     const target = event.target.closest('[data-track]');
     if (!target) return;
-    send('click', {
-      id: target.getAttribute('data-track'),
+    const id = target.getAttribute('data-track');
+    const tag = (target.tagName || '').toLowerCase();
+    const isToolAction = tag === 'button' || /(?:^|-)(run|calculate|convert|generate|format|decode|encode|check|find|show|start|reset|copy|sort|parse|explain|test|build|preview|count|clean|remove|compare)(?:-|$)/i.test(id || '');
+    send(isToolAction ? 'tool_action' : 'click', {
+      id,
+      tag,
       text: (target.textContent || '').trim().slice(0, 120),
       href: target.href || null
     });

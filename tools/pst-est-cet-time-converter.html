@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PST EST CET Time Converter | Useful One-Page Tools</title>
+  <meta name="description" content="Convert between PST/PDT, EST/EDT, and CET/CEST for a selected date and time, with daylight saving time handled automatically." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/pst-est-cet-time-converter" />
+  <meta property="og:title" content="PST EST CET Time Converter" />
+  <meta property="og:description" content="Convert between PST/PDT, EST/EDT, and CET/CEST for a selected date and time, with daylight saving time handled automatically." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/pst-est-cet-time-converter" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"PST EST CET Time Converter","url":"https://usefulonepagetools.com/tools/pst-est-cet-time-converter","applicationCategory":"Time Tools","operatingSystem":"Any","description":"Convert between PST/PDT, EST/EDT, and CET/CEST for a selected date and time, with daylight saving time handled automatically.","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Useful One-Page Tools","url":"https://usefulonepagetools.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"All tools","item":"https://usefulonepagetools.com/"},{"@type":"ListItem","position":2,"name":"PST EST CET Time Converter","item":"https://usefulonepagetools.com/tools/pst-est-cet-time-converter"}]}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="pst-est-cet-time-converter-nav-all-tools" href="../index.html">← All tools</a> · <a data-track="pst-est-cet-time-converter-time-tools-category-breadcrumb" href="../time-tools/">Time Tools</a></div>
+    <div class="hero"><span class="badge">Time Tools</span><h1>PST EST CET Time Converter</h1><p class="muted">Convert between PST/PDT, EST/EDT, and CET/CEST for a selected date and time, with daylight saving time handled automatically.</p></div>
+    <div class="card"><div class="row two"><div><label for="zone">Input time zone</label><select id="zone"><option value="America/Los_Angeles">PST/PDT</option><option value="America/New_York">EST/EDT</option><option value="Europe/Paris">CET/CEST</option></select></div><div><label for="date">Date</label><input id="date" type="date" /></div><div><label for="time">Time</label><input id="time" type="time" value="09:00" /></div></div><button id="run" data-track="pst-est-cet-time-converter-convert">Convert time</button><div id="result" class="result"></div></div><div class="card small"><h2>What this converts</h2><p class="muted">PST/PDT is Pacific time, EST/EDT is Eastern time, and CET/CEST is Central European time. The label changes with daylight saving time automatically for the selected date.</p></div>
+    <div class="card small"><h2>Related time tools</h2><p><a data-track="pst-est-cet-time-converter-related-utc-to-local-time-converter" href="./utc-to-local-time-converter">Utc to Local Time Converter</a> · <a data-track="pst-est-cet-time-converter-related-time-zone-abbreviation-lookup" href="./time-zone-abbreviation-lookup">Time Zone Abbreviation Lookup</a> · <a data-track="pst-est-cet-time-converter-related-best-world-meeting-time-finder" href="./best-world-meeting-time-finder">Best World Meeting Time Finder</a> · <a data-track="pst-est-cet-time-converter-related-work-hours-overlap-calculator" href="./work-hours-overlap-calculator">Work Hours Overlap Calculator</a> · <a data-track="pst-est-cet-time-converter-related-all-tools" href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+
+const zoneMap = {
+  "Tokyo": "Asia/Tokyo",
+  "New York": "America/New_York",
+  "London": "Europe/London",
+  "Berlin": "Europe/Berlin",
+  "Singapore": "Asia/Singapore",
+  "Sydney": "Australia/Sydney",
+  "Los Angeles": "America/Los_Angeles",
+  "San Francisco": "America/Los_Angeles",
+  "Chicago": "America/Chicago",
+  "Paris": "Europe/Paris",
+  "Dubai": "Asia/Dubai",
+  "Seoul": "Asia/Seoul"
+};
+function getTimeZoneOffset(date, timeZone) {
+  const dtf = new Intl.DateTimeFormat('en-US', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  const parts = Object.fromEntries(dtf.formatToParts(date).filter(p => p.type !== 'literal').map(p => [p.type, p.value]));
+  const asUTC = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
+  return (asUTC - date.getTime()) / 60000;
+}
+function zonedDateTimeToUtc(dateStr, timeStr, timeZone) {
+  const [y,m,d] = dateStr.split('-').map(Number);
+  const [hh,mm] = timeStr.split(':').map(Number);
+  const guess = new Date(Date.UTC(y, m - 1, d, hh, mm));
+  const offset = getTimeZoneOffset(guess, timeZone);
+  return new Date(Date.UTC(y, m - 1, d, hh, mm) - offset * 60000);
+}
+function formatInZone(date, timeZone) {
+  return new Intl.DateTimeFormat('en-US', { timeZone, weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' }).format(date);
+}
+function hourInZone(date, timeZone) {
+  return Number(new Intl.DateTimeFormat('en-US', { timeZone, hour: '2-digit', hour12: false }).format(date).replace('24','0'));
+}
+function scoreHour(h) { if (h >= 9 && h < 17) return 3; if (h >= 7 && h < 9) return 2; if (h >= 17 && h < 21) return 2; if (h >= 6 && h < 22) return 1; return 0; }
+function labelHour(h) { if (h >= 9 && h < 17) return 'work hours'; if (h >= 7 && h < 9) return 'early'; if (h >= 17 && h < 21) return 'evening'; if (h >= 6 && h < 22) return 'possible'; return 'bad'; }
+function todayISO(){ return new Date().toISOString().slice(0,10); }
+
+const date=document.getElementById('date'), time=document.getElementById('time'), zone=document.getElementById('zone'), result=document.getElementById('result'); date.value=todayISO();
+const targets=[['PST/PDT','America/Los_Angeles'],['EST/EDT','America/New_York'],['CET/CEST','Europe/Paris'],['London','Europe/London'],['Tokyo','Asia/Tokyo']];
+function render(){const utc=zonedDateTimeToUtc(date.value,time.value,zone.value); result.innerHTML='<table><thead><tr><th>Zone</th><th>Local time</th></tr></thead><tbody>'+targets.map(([label,z])=>'<tr><td>'+label+'</td><td>'+formatInZone(utc,z)+'</td></tr>').join('')+'</tbody></table>'; if(window.opTrack) window.opTrack('tool_run',{id:'pst-est-cet-time-converter-convert', input_zone:zone.value});}
+document.getElementById('run').addEventListener('click',render); render();
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

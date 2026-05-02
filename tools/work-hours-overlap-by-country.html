@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Work Hours Overlap by Country | Useful One-Page Tools</title>
+  <meta name="description" content="Find overlapping 9-to-5 work hours between country or region time zones for remote meetings and global teams." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/work-hours-overlap-by-country" />
+  <meta property="og:title" content="Work Hours Overlap by Country" />
+  <meta property="og:description" content="Find overlapping 9-to-5 work hours between country or region time zones for remote meetings and global teams." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/work-hours-overlap-by-country" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Work Hours Overlap by Country","url":"https://usefulonepagetools.com/tools/work-hours-overlap-by-country","applicationCategory":"Time Tools","operatingSystem":"Any","description":"Find overlapping 9-to-5 work hours between country or region time zones for remote meetings and global teams.","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Useful One-Page Tools","url":"https://usefulonepagetools.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"All tools","item":"https://usefulonepagetools.com/"},{"@type":"ListItem","position":2,"name":"Work Hours Overlap by Country","item":"https://usefulonepagetools.com/tools/work-hours-overlap-by-country"}]}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="work-hours-overlap-by-country-nav-all-tools" href="../index.html">← All tools</a> · <a data-track="work-hours-overlap-by-country-time-tools-category-breadcrumb" href="../time-tools/">Time Tools</a></div>
+    <div class="hero"><span class="badge">Time Tools</span><h1>Work Hours Overlap by Country</h1><p class="muted">Find overlapping 9-to-5 work hours between country or region time zones for remote meetings and global teams.</p></div>
+    <div class="card"><div class="row two"><div><label for="a">Country or region A</label><select id="a"><option value="United States|America/New_York">United States Eastern</option><option value="United States Pacific|America/Los_Angeles">United States Pacific</option><option value="United Kingdom|Europe/London">United Kingdom</option><option value="Germany|Europe/Berlin">Germany</option><option value="Japan|Asia/Tokyo">Japan</option><option value="Singapore|Asia/Singapore">Singapore</option><option value="Australia Eastern|Australia/Sydney">Australia Eastern</option></select></div><div><label for="b">Country or region B</label><select id="b"><option value="Japan|Asia/Tokyo">Japan</option><option value="United States Eastern|America/New_York">United States Eastern</option><option value="United Kingdom|Europe/London">United Kingdom</option><option value="Germany|Europe/Berlin">Germany</option><option value="Singapore|Asia/Singapore">Singapore</option><option value="Australia Eastern|Australia/Sydney">Australia Eastern</option></select></div><div><label for="date">Date</label><input id="date" type="date" /></div></div><button id="run" data-track="work-hours-overlap-by-country-calculate-overlap">Calculate overlap</button><div id="result" class="result"></div></div>
+    <div class="card small"><h2>Related time tools</h2><p><a data-track="work-hours-overlap-by-country-related-work-hours-overlap-calculator" href="./work-hours-overlap-calculator">Work Hours Overlap Calculator</a> · <a data-track="work-hours-overlap-by-country-related-remote-team-meeting-planner" href="./remote-team-meeting-planner">Remote Team Meeting Planner</a> · <a data-track="work-hours-overlap-by-country-related-best-world-meeting-time-finder" href="./best-world-meeting-time-finder">Best World Meeting Time Finder</a> · <a data-track="work-hours-overlap-by-country-related-utc-to-local-time-converter" href="./utc-to-local-time-converter">Utc to Local Time Converter</a> · <a data-track="work-hours-overlap-by-country-related-all-tools" href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+
+const zoneMap = {
+  "Tokyo": "Asia/Tokyo",
+  "New York": "America/New_York",
+  "London": "Europe/London",
+  "Berlin": "Europe/Berlin",
+  "Singapore": "Asia/Singapore",
+  "Sydney": "Australia/Sydney",
+  "Los Angeles": "America/Los_Angeles",
+  "San Francisco": "America/Los_Angeles",
+  "Chicago": "America/Chicago",
+  "Paris": "Europe/Paris",
+  "Dubai": "Asia/Dubai",
+  "Seoul": "Asia/Seoul"
+};
+function getTimeZoneOffset(date, timeZone) {
+  const dtf = new Intl.DateTimeFormat('en-US', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  const parts = Object.fromEntries(dtf.formatToParts(date).filter(p => p.type !== 'literal').map(p => [p.type, p.value]));
+  const asUTC = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
+  return (asUTC - date.getTime()) / 60000;
+}
+function zonedDateTimeToUtc(dateStr, timeStr, timeZone) {
+  const [y,m,d] = dateStr.split('-').map(Number);
+  const [hh,mm] = timeStr.split(':').map(Number);
+  const guess = new Date(Date.UTC(y, m - 1, d, hh, mm));
+  const offset = getTimeZoneOffset(guess, timeZone);
+  return new Date(Date.UTC(y, m - 1, d, hh, mm) - offset * 60000);
+}
+function formatInZone(date, timeZone) {
+  return new Intl.DateTimeFormat('en-US', { timeZone, weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' }).format(date);
+}
+function hourInZone(date, timeZone) {
+  return Number(new Intl.DateTimeFormat('en-US', { timeZone, hour: '2-digit', hour12: false }).format(date).replace('24','0'));
+}
+function scoreHour(h) { if (h >= 9 && h < 17) return 3; if (h >= 7 && h < 9) return 2; if (h >= 17 && h < 21) return 2; if (h >= 6 && h < 22) return 1; return 0; }
+function labelHour(h) { if (h >= 9 && h < 17) return 'work hours'; if (h >= 7 && h < 9) return 'early'; if (h >= 17 && h < 21) return 'evening'; if (h >= 6 && h < 22) return 'possible'; return 'bad'; }
+function todayISO(){ return new Date().toISOString().slice(0,10); }
+
+const a=document.getElementById('a'),b=document.getElementById('b'),date=document.getElementById('date'),result=document.getElementById('result'); date.value=todayISO();
+function split(v){const [name,zone]=v.split('|'); return {name,zone};}
+function render(){const A=split(a.value),B=split(b.value); const slots=[]; for(let h=0;h<24;h++){const utc=zonedDateTimeToUtc(date.value,String(h).padStart(2,'0')+':00','UTC'); const ah=hourInZone(utc,A.zone), bh=hourInZone(utc,B.zone); if(ah>=9&&ah<17&&bh>=9&&bh<17) slots.push([formatInZone(utc,A.zone),formatInZone(utc,B.zone)]);} result.innerHTML=slots.length?'<p><strong>'+slots.length+' overlapping UTC-hour slots found.</strong></p><table><thead><tr><th>'+A.name+'</th><th>'+B.name+'</th></tr></thead><tbody>'+slots.map(s=>'<tr><td>'+s[0]+'</td><td>'+s[1]+'</td></tr>').join('')+'</tbody></table>':'<p>No strict 9:00-17:00 overlap found. Try early/evening flexibility or another date.</p>'; if(window.opTrack) window.opTrack('tool_run',{id:'work-hours-overlap-by-country-calculate-overlap', a:A.name, b:B.name, slots:slots.length});}
+document.getElementById('run').addEventListener('click',render); render();
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>

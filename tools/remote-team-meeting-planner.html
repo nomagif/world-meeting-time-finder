@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Remote Team Meeting Planner | Useful One-Page Tools</title>
+  <meta name="description" content="Find the best meeting slots for remote teams across multiple cities by comparing reasonable work-hour overlap." />
+  <link rel="canonical" href="https://usefulonepagetools.com/tools/remote-team-meeting-planner" />
+  <meta property="og:title" content="Remote Team Meeting Planner" />
+  <meta property="og:description" content="Find the best meeting slots for remote teams across multiple cities by comparing reasonable work-hour overlap." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://usefulonepagetools.com/tools/remote-team-meeting-planner" />
+  <meta name="twitter:card" content="summary" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7137707592053151" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Remote Team Meeting Planner","url":"https://usefulonepagetools.com/tools/remote-team-meeting-planner","applicationCategory":"Time Tools","operatingSystem":"Any","description":"Find the best meeting slots for remote teams across multiple cities by comparing reasonable work-hour overlap.","isAccessibleForFree":true,"publisher":{"@type":"Organization","name":"Useful One-Page Tools","url":"https://usefulonepagetools.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"All tools","item":"https://usefulonepagetools.com/"},{"@type":"ListItem","position":2,"name":"Remote Team Meeting Planner","item":"https://usefulonepagetools.com/tools/remote-team-meeting-planner"}]}]}</script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="nav"><a data-track="remote-team-meeting-planner-nav-all-tools" href="../index.html">← All tools</a> · <a data-track="remote-team-meeting-planner-time-tools-category-breadcrumb" href="../time-tools/">Time Tools</a></div>
+    <div class="hero"><span class="badge">Time Tools</span><h1>Remote Team Meeting Planner</h1><p class="muted">Find the best meeting slots for remote teams across multiple cities by comparing reasonable work-hour overlap.</p></div>
+    <div class="card"><label for="cities">Team cities</label><select id="cities" multiple size="8"><option selected>Tokyo</option><option selected>New York</option><option selected>London</option><option>Berlin</option><option>Singapore</option><option>Sydney</option><option>Los Angeles</option><option>Chicago</option><option>Dubai</option></select><label for="date">Date</label><input id="date" type="date" /><button id="run" data-track="remote-team-meeting-planner-find-best-slots">Find best slots</button><div id="result" class="result"></div></div><div class="card small"><h2>How to read the score</h2><p class="muted">Each candidate hour is scored by how reasonable it is for every selected city. Work hours score highest, early mornings and evenings are still possible, and night hours score poorly.</p></div>
+    <div class="card small"><h2>Related time tools</h2><p><a data-track="remote-team-meeting-planner-related-best-world-meeting-time-finder" href="./best-world-meeting-time-finder">Best World Meeting Time Finder</a> · <a data-track="remote-team-meeting-planner-related-time-zone-meeting-planner-by-cities" href="./time-zone-meeting-planner-by-cities">Time Zone Meeting Planner by Cities</a> · <a data-track="remote-team-meeting-planner-related-work-hours-overlap-calculator" href="./work-hours-overlap-calculator">Work Hours Overlap Calculator</a> · <a data-track="remote-team-meeting-planner-related-us-europe-asia-time-overlap-tool" href="./us-europe-asia-time-overlap-tool">Us Europe Asia Time Overlap Tool</a> · <a data-track="remote-team-meeting-planner-related-all-tools" href="../index.html">All tools</a></p></div>
+  </div>
+  <script>
+
+const zoneMap = {
+  "Tokyo": "Asia/Tokyo",
+  "New York": "America/New_York",
+  "London": "Europe/London",
+  "Berlin": "Europe/Berlin",
+  "Singapore": "Asia/Singapore",
+  "Sydney": "Australia/Sydney",
+  "Los Angeles": "America/Los_Angeles",
+  "San Francisco": "America/Los_Angeles",
+  "Chicago": "America/Chicago",
+  "Paris": "Europe/Paris",
+  "Dubai": "Asia/Dubai",
+  "Seoul": "Asia/Seoul"
+};
+function getTimeZoneOffset(date, timeZone) {
+  const dtf = new Intl.DateTimeFormat('en-US', { timeZone, year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+  const parts = Object.fromEntries(dtf.formatToParts(date).filter(p => p.type !== 'literal').map(p => [p.type, p.value]));
+  const asUTC = Date.UTC(parts.year, parts.month - 1, parts.day, parts.hour, parts.minute, parts.second);
+  return (asUTC - date.getTime()) / 60000;
+}
+function zonedDateTimeToUtc(dateStr, timeStr, timeZone) {
+  const [y,m,d] = dateStr.split('-').map(Number);
+  const [hh,mm] = timeStr.split(':').map(Number);
+  const guess = new Date(Date.UTC(y, m - 1, d, hh, mm));
+  const offset = getTimeZoneOffset(guess, timeZone);
+  return new Date(Date.UTC(y, m - 1, d, hh, mm) - offset * 60000);
+}
+function formatInZone(date, timeZone) {
+  return new Intl.DateTimeFormat('en-US', { timeZone, weekday: 'short', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false, timeZoneName: 'short' }).format(date);
+}
+function hourInZone(date, timeZone) {
+  return Number(new Intl.DateTimeFormat('en-US', { timeZone, hour: '2-digit', hour12: false }).format(date).replace('24','0'));
+}
+function scoreHour(h) { if (h >= 9 && h < 17) return 3; if (h >= 7 && h < 9) return 2; if (h >= 17 && h < 21) return 2; if (h >= 6 && h < 22) return 1; return 0; }
+function labelHour(h) { if (h >= 9 && h < 17) return 'work hours'; if (h >= 7 && h < 9) return 'early'; if (h >= 17 && h < 21) return 'evening'; if (h >= 6 && h < 22) return 'possible'; return 'bad'; }
+function todayISO(){ return new Date().toISOString().slice(0,10); }
+
+const select=document.getElementById('cities'), date=document.getElementById('date'), result=document.getElementById('result'); date.value=todayISO();
+function selected(){return Array.from(select.selectedOptions).map(o=>o.value)}
+function render(){const cities=selected(); const candidates=[]; for(let h=0;h<24;h++){const utc=zonedDateTimeToUtc(date.value,String(h).padStart(2,'0')+':00','UTC'); const details=cities.map(c=>{const hour=hourInZone(utc,zoneMap[c]); return {city:c,time:formatInZone(utc,zoneMap[c]),fit:labelHour(hour),score:scoreHour(hour)}}); candidates.push({utc,score:details.reduce((s,d)=>s+d.score,0),details});} candidates.sort((a,b)=>b.score-a.score); const top=candidates.slice(0,5); result.innerHTML=top.map((c,i)=>'<h3>#'+(i+1)+' score '+c.score+' / '+(cities.length*3)+'</h3><table><tbody>'+c.details.map(d=>'<tr><td>'+d.city+'</td><td>'+d.time+'</td><td>'+d.fit+'</td></tr>').join('')+'</tbody></table>').join(''); if(window.opTrack) window.opTrack('tool_run',{id:'remote-team-meeting-planner-find-best-slots', cities:cities, top_score:top[0]?.score});}
+document.getElementById('run').addEventListener('click',render); render();
+  </script>
+  <script src="../assets/analytics.js" defer></script>
+</body>
+</html>
